@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>AI-jämförelse: ChatGPT, Copilot & Le Chat</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f9ff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    header {
+        background: #a3d9ff;
+        padding: 20px;
+        text-align: center;
+        color: #033b5c;
+    }
+    h2 {
+        color: #045c75;
+    }
+    section {
+        background: #ffffff;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .fact-box {
+        background: #fff7d1;
+        border-left: 6px solid #ffc83d;
+        padding: 10px 15px;
+        margin-top: 15px;
+        border-radius: 6px;
+    }
+    ul { padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>AI‑Guide: ChatGPT • Microsoft Copilot • Le Chat</h1>
+    <p>Snabb, enkel & kul jämförelse!</p>
+</header>
+
+<section>
+    <h2>⭐ Översikt</h2>
+    <ul>
+        <li><strong>ChatGPT:</strong> Mest kreativ och flexibel, stark på skrivande och kodning. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+        <li><strong>Microsoft Copilot:</strong> Bäst integrerad i Word, Excel, Teams och Windows. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+        <li><strong>Le Chat (Mistral):</strong> Öppen och snabb EU‑modell, bra för GDPR-vänlig användning (ingen specifik 2026‑data i källorna, därför neutral faktabeskrivning).</li>
+    </ul>
+</section>
+
+<section>
+    <h2>✔ Fördelar & ✖ Nackdelar</h2>
+
+    <h3>ChatGPT</h3>
+    <ul>
+        <li>✔ Mest allround & hög kreativitet [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+        <li>✔ Stark för skrivande, problemlösning och kodning [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini)</li>
+        <li>✖ Bästa funktionerna ligger bakom betaltjänster [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+    </ul>
+
+    <h3>Microsoft Copilot</h3>
+    <ul>
+        <li>✔ Fantastiskt bra om du jobbar mycket i Microsoft 365 [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+        <li>✔ Bra säkerhets- & företagsfunktioner (enterprise) [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini)</li>
+        <li>✖ Mindre kreativ i vissa svar jämfört med ChatGPT [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+    </ul>
+
+    <h3>Le Chat (Mistral)</h3>
+    <ul>
+        <li>✔ EU‑baserad → stark GDPR‑vänlighet</li>
+        <li>✔ Snabb, minimalistisk, ofta gratis</li>
+        <li>✖ Färre funktioner & integrationer än ChatGPT/Copilot</li>
+    </ul>
+</section>
+
+<section>
+    <h2>🌍 USA vs EU‑regler</h2>
+    <ul>
+        <li><strong>USA:</strong> Snabb utveckling men svagare integritetsskydd, mer fokus på innovation.</li>
+        <li><strong>EU:</strong> Stränga dataskyddsregler, AI Act på väg att reglera AI tydligare.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>🔐 GDPR vs Ej GDPR</h2>
+    <ul>
+        <li>GDPR‑vänligt → Mindre datadelning, mer transparens.</li>
+        <li>Ej GDPR → Kan innebära mer datainsamling, svagare skydd.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>🛡️ Säkert vs Osäkert</h2>
+    <ul>
+        <li>✔ Copilot & ChatGPT har tydliga säkerhetsprinciper (t.ex. förbud mot massövervakning). [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)</li>
+        <li>✖ Osäkert när AI spelas in i politiska konflikter (se faktarutan nedan). </li>
+    </ul>
+</section>
+
+<section>
+    <h2>💸 Gratisversioner</h2>
+    <ul>
+        <li><strong>ChatGPT Free:</strong> Bra men begränsat — vissa funktioner saknas. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+        <li><strong>Copilot Free:</strong> Ofta mer generös än ChatGPT gratis enligt tester 2026. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+        <li><strong>Le Chat:</strong> Generös free-tier, snabb, ren UI.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>💳 Betalversioner</h2>
+    <ul>
+        <li><strong>ChatGPT Plus:</strong> Ca 20 USD/mån, bäst för kreativitet & kodning. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+        <li><strong>Copilot Pro:</strong> Ca 20 USD/mån, bäst för Microsoft 365‑användare. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+        <li><strong>Le Chat Premium:</strong> Generellt billigare men med färre premiumfunktioner.</li>
+    </ul>
+</section>
+
+<section class="fact-box">
+    <h3>⚠️ Fakta: Vad hände med OpenAI & Trump?</h3>
+    <p>
+        2026 stoppade Trump‑administrationen konkurrenten Anthropic från all federal användning 
+        efter en konflikt om krav på att tillåta militär massövervakning och autonoma vapen. 
+        OpenAI lyckades istället få igenom ett avtal med Pentagon – men med tydliga säkerhetsprinciper:
+        <em>ingen massövervakning och mänskligt ansvar vid användning av våld</em>.  
+        [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)[6](https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html)
+    </p>
+</section>
+
+<footer style="text-align:center; padding:20px; color:#777;">
+    <p>© 2026 – AI‑jämförelse på ett enkelt sätt</p>
+</footer>
+
+</body>
+</html>
