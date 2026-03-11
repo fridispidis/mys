@@ -171,6 +171,8 @@
 
     h3 {
       font-size: 1.35rem;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     p {
@@ -387,17 +389,21 @@
       width: 48px;
       height: 48px;
       border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 14px;
       background: linear-gradient(135deg, var(--peach), var(--lavender));
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .card-icon img{
-  width:28px;
-  height:28px;
-  object-fit:contain;
-}
+
+    .card-icon img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      display: block;
+    }
 
     .info-card:nth-child(2n) .card-icon,
     .compare-card:nth-child(2n) .card-icon,
@@ -424,8 +430,16 @@
       list-style: none;
     }
 
+    .info-card ul,
+    .compare-card ul,
+    .price-card ul,
+    .note-card ul {
+      line-height: 1.7;
+    }
+
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 1rem;
     }
 
     .plus-list li::before {
@@ -598,7 +612,8 @@
         <div class="info-grid">
           <article class="info-card">
             <div class="card-icon">
-                <img src="ChatGPT-Logo.png" alt="ChatGPT logga">
+              <img src="ChatGPT-Logo.png" alt="ChatGPT logga">
+            </div>
             <h3>ChatGPT</h3>
             <ul class="dot-list">
               <li>Bra för bred användning och kreativt arbete.</li>
@@ -744,7 +759,7 @@
             <h3>USA vs EU</h3>
             <p>ChatGPT och Copilot kommer från USA-bolag. Le Chat kommer från europeiska Mistral AI. Det påverkar hur många tänker kring datalagring, jurisdiktion och regelefterlevnad.</p>
             <div class="label-row">
-             <span class="label">🇺🇸 ChatGPT: USA-bolag</span>
+              <span class="label">🇺🇸 ChatGPT: USA-bolag</span>
               <span class="label">🇺🇸 Copilot: USA-bolag</span>
               <span class="label">🇪🇺 Le Chat: EU-bolag</span>
             </div>
@@ -812,7 +827,6 @@
       <div class="footer-card">
         <h2>Tre olika styrkor</h2>
         <p>ChatGPT för allround. Copilot för Microsoft. Le Chat för EU-profil.</p>
-        <p>Den här sidan är gjord för att kännas som samma webbplats som startsidan.</p>
       </div>
     </div>
   </footer>
