@@ -1,139 +1,295 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<title>AI-jämförelse: ChatGPT, Copilot & Le Chat</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI-guide: ChatGPT • Copilot • Le Chat</title>
+<meta name="description" content="Snabb, enkel och kul jämförelse mellan ChatGPT, Microsoft Copilot och Le Chat.">
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f5f9ff;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
+  :root{
+    --bg:#f5f9ff;
+    --card:#ffffff;
+    --ink:#263238;
+    --muted:#5f6b73;
+    --brand:#2aa4bf;
+    --brand-2:#a3d9ff;
+    --accent:#ffc83d;
+    --good:#10b981;
+    --warn:#f59e0b;
+    --bad:#ef4444;
+    --shadow:0 8px 24px rgba(2,12,27,.08);
+    --radius:14px;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+  a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+  /* Header / hero */
+  .hero{
+    background: linear-gradient(180deg, var(--brand-2), #e9f6ff 60%, transparent);
+    padding: 56px 20px 32px;
+    text-align: center;
+  }
+  .hero h1{margin:0;font-size:clamp(28px,4vw,40px);color:#033b5c}
+  .hero p{margin:10px auto 0;max-width:740px;color:var(--muted);font-size:clamp(15px,2.5vw,18px)}
+  /* Layout */
+  .wrap{display:grid;grid-template-columns:260px 1fr;gap:22px;max-width:1100px;margin:0 auto;padding:20px}
+  @media (max-width: 900px){ .wrap{grid-template-columns:1fr} }
+  /* Side nav */
+  .sidenav{
+    position:sticky;top:16px;align-self:start;background:var(--card);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:14px 14px 8px
+  }
+  .sidenav h3{margin:6px 6px 10px;font-size:16px;color:#045c75}
+  .sidenav a{display:block;padding:10px 12px;border-radius:10px;color:var(--ink)}
+  .sidenav a:hover{background:#eef7fb}
+  details.sidemenu{display:none}
+  @media (max-width: 900px){
+    .sidenav{display:none}
+    details.sidemenu{display:block;margin:0 auto;max-width:1100px;padding:0 20px}
+    details.sidemenu summary{
+      list-style:none;cursor:pointer;background:var(--card);border-radius:12px;padding:12px 16px;
+      box-shadow:var(--shadow);font-weight:600;color:#045c75
     }
-    header {
-        background: #a3d9ff;
-        padding: 20px;
-        text-align: center;
-        color: #033b5c;
-    }
-    h2 {
-        color: #045c75;
-    }
-    section {
-        background: #ffffff;
-        margin: 20px;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .fact-box {
-        background: #fff7d1;
-        border-left: 6px solid #ffc83d;
-        padding: 10px 15px;
-        margin-top: 15px;
-        border-radius: 6px;
-    }
-    ul { padding-left: 20px; }
+    details.sidemenu .sidenav{display:block;margin-top:10px}
+  }
+  /* Sections */
+  section{scroll-margin-top:90px}
+  .section{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:20px;margin-bottom:20px
+  }
+  .section h2{margin:0 0 6px;color:#045c75}
+  .lead{color:var(--muted);margin-top:0}
+  /* Cards grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--card);border:1px solid #eef2f5;border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 6px}
+  .tag{font-size:12px;padding:3px 8px;border-radius:999px;background:#eef7fb;color:#045c75}
+  .ok{color:var(--good)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+  ul{padding-left:18px;margin:8px 0}
+  /* Fact box */
+  .fact{background:#fff7d1;border-left:6px solid var(--accent);border-radius:10px;padding:12px 14px}
+  .kallor{font-size:14px;color:var(--muted)}
+  /* Footer */
+  footer{padding:24px 20px;text-align:center;color:var(--muted)}
+  .toplink{display:inline-block;margin-top:6px}
 </style>
 </head>
 <body>
 
-<header>
-    <h1>AI‑Guide: ChatGPT • Microsoft Copilot • Le Chat</h1>
-    <p>Snabb, enkel & kul jämförelse!</p>
+<header class="hero" id="top">
+  <h1>AI‑guide: ChatGPT • Microsoft Copilot • Le Chat</h1>
+  <p>Snabb, uppdelad och kul översikt av tre populära AI‑assistenter — med det viktigaste om styrkor, svagheter, regler & pris.</p>
 </header>
 
-<section>
-    <h2>⭐ Översikt</h2>
-    <ul>
-        <li><strong>ChatGPT:</strong> Mest kreativ och flexibel, stark på skrivande och kodning. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
-        <li><strong>Microsoft Copilot:</strong> Bäst integrerad i Word, Excel, Teams och Windows. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
-        <li><strong>Le Chat (Mistral):</strong> Öppen och snabb EU‑modell, bra för GDPR-vänlig användning (ingen specifik 2026‑data i källorna, därför neutral faktabeskrivning).</li>
-    </ul>
-</section>
+<!-- Mobil sidomeny -->
+<details class="sidemenu">
+  <summary>📑 Innehåll</summary>
+  <nav class="sidenav" aria-label="Sektioner">
+    <h3>Snabbnavigering</h3>
+    #oversikt⭐ Översikt</a>
+    #jfr✔/✖ Jämförelser</a>
+    <regler🌍 USA vs EU</a>
+    #gdpr🔐 GDPR</a>
+    #sakerhet🛡️ Säkerhet</a>
+    #gratis💸 Gratis</a>
+    #betal💳 Betal</a>
+    <aakta⚠️ Fakta</a>
+    #kallor🔎 Källor</a>
+  </nav>
+</details>
 
-<section>
-    <h2>✔ Fördelar & ✖ Nackdelar</h2>
+<!-- Desktop sidomeny + innehåll -->
+<div class="wrap">
+  <nav class="sidenav" aria-label="Sektioner">
+    <h3>Snabbnavigering</h3>
+    #oversikt⭐ Översikt</a>
+    <afr✔/✖ Jämförelser</a>
+    #regler🌍 USA vs EU</a>
+    #gdpr🔐 GDPR</a>
+    <a hrefet🛡️ Säkerhet</a>
+    #gratis💸 Gratis</a>
+    #betal💳 Betal</a>
+    #fakta⚠️ Fakta</a>
+    <a href="#källor</a>
+  </nav>
 
-    <h3>ChatGPT</h3>
-    <ul>
-        <li>✔ Mest allround & hög kreativitet [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
-        <li>✔ Stark för skrivande, problemlösning och kodning [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini)</li>
-        <li>✖ Bästa funktionerna ligger bakom betaltjänster [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
-    </ul>
+  <main>
 
-    <h3>Microsoft Copilot</h3>
-    <ul>
-        <li>✔ Fantastiskt bra om du jobbar mycket i Microsoft 365 [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
-        <li>✔ Bra säkerhets- & företagsfunktioner (enterprise) [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini)</li>
-        <li>✖ Mindre kreativ i vissa svar jämfört med ChatGPT [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
-    </ul>
+    <!-- Översikt -->
+    <section id="oversikt" class="section">
+      <h2>⭐ Översikt</h2>
+      <p class="lead">Tre verktyg – tre styrkor. Välj det som passar ditt flöde.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>ChatGPT <span class="tag">Allround</span></h3>
+          <ul>
+            <li>Stark på skrivande, kod & kreativitet. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+            <li>Bred funktionalitet, men bästa bitarna i betalplan. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Microsoft Copilot <span class="tag">M365</span></h3>
+          <ul>
+            <li>Bäst i Word/Excel/PowerPoint/Teams (sömlös integration). [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+            <li>Tryggt val i Microsoft‑miljöer/arbete. [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Le Chat (Mistral) <span class="tag">EU‑fokus</span></h3>
+          <ul>
+            <li>EU‑baserad och ofta lätt att köra GDPR‑vänligt.</li>
+            <li>Färre integrationer än ChatGPT/Copilot.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <h3>Le Chat (Mistral)</h3>
-    <ul>
-        <li>✔ EU‑baserad → stark GDPR‑vänlighet</li>
-        <li>✔ Snabb, minimalistisk, ofta gratis</li>
-        <li>✖ Färre funktioner & integrationer än ChatGPT/Copilot</li>
-    </ul>
-</section>
+    <!-- Jämförelser -->
+    <section id="jfr" class="section">
+      <h2>✔ Fördelar & ✖ Nackdelar</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>ChatGPT</h3>
+          <ul>
+            <li class="ok">✔ Kreativ & mångsidig för text/kod. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+            <li class="bad">✖ Gratisversionen saknar flera premiumfunktioner. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Copilot</h3>
+          <ul>
+            <li class="ok">✔ Sitter i dina M365‑appar = tidsvinst. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+            <li class="warn">⚠ Kan kännas striktare/mindre “fri” än ChatGPT. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Le Chat</h3>
+          <ul>
+            <li class="ok">✔ Snabb, ren UI, EU‑vänlig.</li>
+            <li class="bad">✖ Mindre ekosystem & färre plugins.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section>
-    <h2>🌍 USA vs EU‑regler</h2>
-    <ul>
-        <li><strong>USA:</strong> Snabb utveckling men svagare integritetsskydd, mer fokus på innovation.</li>
-        <li><strong>EU:</strong> Stränga dataskyddsregler, AI Act på väg att reglera AI tydligare.</li>
-    </ul>
-</section>
+    <!-- Regler -->
+    <section id="regler" class="section">
+      <h2>🌍 USA vs EU‑regler</h2>
+      <ul>
+        <li><strong>USA:</strong> Snabb innovation, mer varierad policyram. (Allmänt resonemang)</li>
+        <li><strong>EU:</strong> Strikt integritet, AI‑reglering (AI Act) → mer förutsägbarhet för GDPR‑krav. (Allmänt)</li>
+      </ul>
+    </section>
 
-<section>
-    <h2>🔐 GDPR vs Ej GDPR</h2>
-    <ul>
-        <li>GDPR‑vänligt → Mindre datadelning, mer transparens.</li>
-        <li>Ej GDPR → Kan innebära mer datainsamling, svagare skydd.</li>
-    </ul>
-</section>
+    <!-- GDPR -->
+    <section id="gdpr" class="section">
+      <h2>🔐 GDPR vs ej GDPR</h2>
+      <ul>
+        <li>GDPR → minimerad datadelning, tydligare avtal & transparens.</li>
+        <li>Ej GDPR → större risk för bred datainsamling/överföring.</li>
+      </ul>
+    </section>
 
-<section>
-    <h2>🛡️ Säkert vs Osäkert</h2>
-    <ul>
-        <li>✔ Copilot & ChatGPT har tydliga säkerhetsprinciper (t.ex. förbud mot massövervakning). [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)</li>
-        <li>✖ Osäkert när AI spelas in i politiska konflikter (se faktarutan nedan). </li>
-    </ul>
-</section>
+    <!-- Säkerhet -->
+    <section id="sakerhet" class="section">
+      <h2>🛡️ Säkert vs osäkert</h2>
+      <ul>
+        <li>Copilot & ChatGPT arbetar med uttalade säkerhetsprinciper (t.ex. nej till massövervakning/krav på mänskligt ansvar). [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)</li>
+        <li>Osäkerhet uppstår när AI hamnar mitt i politiska beslut/konflikter (se faktarutan). [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)</li>
+      </ul>
+    </section>
 
-<section>
-    <h2>💸 Gratisversioner</h2>
-    <ul>
-        <li><strong>ChatGPT Free:</strong> Bra men begränsat — vissa funktioner saknas. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
-        <li><strong>Copilot Free:</strong> Ofta mer generös än ChatGPT gratis enligt tester 2026. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
-        <li><strong>Le Chat:</strong> Generös free-tier, snabb, ren UI.</li>
-    </ul>
-</section>
+    <!-- Gratis -->
+    <section id="gratis" class="section">
+      <h2>💸 Gratisversioner – snabb bedömning</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>ChatGPT Free</h3>
+          <ul>
+            <li>Stadig bas, men många toppfunktioner kräver Plus. [2](https://zapier.com/blog/copilot-vs-chatgpt/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Copilot Free</h3>
+          <ul>
+            <li>Upplevs ofta mer generös 2026 än ChatGPT gratis. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Le Chat Free</h3>
+          <ul>
+            <li>Snabb, ren – bra utgångspunkt (färre avancerade features).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section>
-    <h2>💳 Betalversioner</h2>
-    <ul>
-        <li><strong>ChatGPT Plus:</strong> Ca 20 USD/mån, bäst för kreativitet & kodning. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
-        <li><strong>Copilot Pro:</strong> Ca 20 USD/mån, bäst för Microsoft 365‑användare. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
-        <li><strong>Le Chat Premium:</strong> Generellt billigare men med färre premiumfunktioner.</li>
-    </ul>
-</section>
+    <!-- Betal -->
+    <section id="betal" class="section">
+      <h2>💳 Betalversioner – vad är bäst/billigast?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>ChatGPT Plus</h3>
+          <ul>
+            <li>~$20/mån. Starkast för kreativitet + kodning. [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Copilot Pro</h3>
+          <ul>
+            <li>~$20/mån. Bäst för M365‑flöden och dokument. [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Le Chat Premium</h3>
+          <ul>
+            <li>Brukar vara billigare, men med smalare funktionsbredd.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section class="fact-box">
-    <h3>⚠️ Fakta: Vad hände med OpenAI & Trump?</h3>
-    <p>
-        2026 stoppade Trump‑administrationen konkurrenten Anthropic från all federal användning 
-        efter en konflikt om krav på att tillåta militär massövervakning och autonoma vapen. 
-        OpenAI lyckades istället få igenom ett avtal med Pentagon – men med tydliga säkerhetsprinciper:
-        <em>ingen massövervakning och mänskligt ansvar vid användning av våld</em>.  
-        [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)[6](https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html)
-    </p>
-</section>
+    <!-- Fakta-ruta -->
+    <section id="fakta" class="section">
+      <h2>⚠️ Kort fakta: OpenAI & Trump 2026</h2>
+      <div class="fact">
+        <p>
+          Trump‑administrationen stoppade Anthropic i statlig användning efter tvist om
+          <em>massövervakning</em> och <em>autonoma vapen</em>. Kort därefter tecknade OpenAI ett avtal
+          med Pentagon där man betonade två principer:
+          <strong>ingen inhemsk massövervakning</strong> och <strong>mänskligt ansvar vid våldsanvändning</strong>.
+          [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)[6](https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html)
+        </p>
+      </div>
+      <a class="toplink</a>
+    </section>
 
-<footer style="text-align:center; padding:20px; color:#777;">
-    <p>© 2026 – AI‑jämförelse på ett enkelt sätt</p>
+    <!-- Källor -->
+    <section id="kallor" class="section">
+      <h2>🔎 Källor</h2>
+      <p class="kallor">
+        Snabba jämförelser och pris/feature‑bedömningar:
+        <a href="https://fieldguidetoai.com/guides/ai-tools-comparison-guide" target="_blank" rel="noopener">Field Guide to AI (Feb 2026)</a> [1](https://fieldguidetoai.com/guides/ai-tools-comparison-guide),
+        <a href="https://zapier.com/blog/copilot-vs-chatgpt/" target="_blank" rel="noopener">Zapier jämförelse (Jan 2026)</a> [2](https://zapier.com/blog/copilot-vs-chatgpt/),
+        <a href="https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini" target="_blank" rel="noopener">Tactiq guide (Jan 2026)</a> [3](https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini),
+        <a href="https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/" target="_blank" rel="noopener">AIWisePicks test (Jan 2026)</a> [4](https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/).
+      </p>
+      <p class="kallor">
+        OpenAI/Trump/Anthropic‑händelsen:
+        <a href="https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html" target="_blank" rel="noopener">CNBC</a> [5](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html),
+        <a href="https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html" target="_blank" rel="noopener">UPI/Yahoo</a> [6](https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html),
+        <a href="https://www.techrepublic.com/article/news-openai-pentagon-deal-anthropic-federal-ban/" target="_blank" rel="noopener">TechRepublic</a> [7](https://www.techrepublic.com/article/news-openai-pentagon-deal-anthropic-federal-ban/).
+      </p>
+      <a class="topppen</a>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  © 2026 — Skapad för GitHub Pages. Färger: lugna pasteller, enkel typografi.  
+  <aopTill toppen</a>
 </footer>
 
 </body>
