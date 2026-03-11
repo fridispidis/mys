@@ -331,7 +331,21 @@
       background: linear-gradient(135deg, var(--sky), var(--mint));
     }
 
-    ul { margin: 10px 0 0; padding-left: 18px; }
+    ul { margin: 10px 0 0; padding-left: 0; list-style:none; }
+
+    .plus-list li::before {
+      content: "+ ";
+      font-weight: 800;
+      color: #2e7d32;
+      margin-right: 4px;
+    }
+
+    .minus-list li::before {
+      content: "− ";
+      font-weight: 800;
+      color: #a33;
+      margin-right: 4px;
+    }
     li { margin-bottom: 6px; }
 
     .score {
@@ -511,13 +525,13 @@
             <div class="card-icon">⭐</div>
             <h3>ChatGPT</h3>
             <div class="score">+ Plus</div>
-            <ul>
+            <ul class="plus-list">
               <li>Väldigt stark allround.</li>
               <li>Bra på text, idéer, struktur och förklaringar.</li>
               <li>Har ofta många funktioner i samma tjänst.</li>
             </ul>
             <div class="score" style="margin-top:14px;">− Minus</div>
-            <ul>
+            <ul class="minus-list">
               <li>Kan kännas mindre tydlig kring EU-hemvist än Le Chat.</li>
               <li>Vissa starka funktioner ligger bakom betalplaner.</li>
               <li>Inte lika naturligt inbyggd i Microsoft 365 som Copilot.</li>
@@ -528,13 +542,13 @@
             <div class="card-icon">📎</div>
             <h3>Copilot</h3>
             <div class="score">+ Plus</div>
-            <ul>
+            <ul class="plus-list">
               <li>Stark koppling till Microsoft 365.</li>
               <li>Praktisk i arbetsmiljöer med dokument, möten och mejl.</li>
               <li>Starka företagskontroller i rätt Microsoft-miljö.</li>
             </ul>
             <div class="score" style="margin-top:14px;">− Minus</div>
-            <ul>
+            <ul class="minus-list">
               <li>Blir bäst först när man redan lever i Microsoft-världen.</li>
               <li>Kan kännas mer splittrad mellan privat och jobbversioner.</li>
               <li>Vissa avancerade delar kräver dyrare upplägg.</li>
@@ -545,13 +559,13 @@
             <div class="card-icon">🌍</div>
             <h3>Le Chat</h3>
             <div class="score">+ Plus</div>
-            <ul>
+            <ul class="plus-list">
               <li>Europeisk profil och stark EU-känsla.</li>
               <li>Attraktiv gratisnivå för många vanliga behov.</li>
               <li>Känns ofta lätt och snabb att använda.</li>
             </ul>
             <div class="score" style="margin-top:14px;">− Minus</div>
-            <ul>
+            <ul class="minus-list">
               <li>Mindre etablerat ekosystem än ChatGPT och Microsoft.</li>
               <li>Färre inbyggda jobbintegrationer än Copilot.</li>
               <li>Kan vara mindre bekant för vanliga användare.</li>
