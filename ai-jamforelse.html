@@ -1,533 +1,789 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AI‑guide • ChatGPT • Copilot • Le Chat</title>
-<meta name="description" content="En snygg, uppdelad och lättläst jämförelse mellan ChatGPT, Microsoft Copilot och Le Chat.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=CalSans:wght@600;700&display=swap =========================
-   THEME & TOKENS
-========================= */
-:root{
-  --bg: #0c1222;
-  --bg-2:#0f1730;
-  --card:#0e1a31cc;           /* glass */
-  --ink:#e6f0ff;
-  --muted:#a9b8d4;
-  --brand:#57d2f6;
-  --brand-2:#b0e6ff;
-  --accent:#ffd166;
-  --good:#38d39f;
-  --warn:#ffb020;
-  --bad:#ff6b6b;
-  --ring:#7ad3ff;
-  --radius:18px;
-  --shadow: 0 24px 60px rgba(3,11,38,.35), 0 2px 10px rgba(3,11,38,.3);
-  --glass: blur(8px) saturate(120%);
-  --grid-gap: 18px;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT, Copilot och Le Chat – jämförelse</title>
+  <meta name="description" content="En enkel och snygg jämförelse mellan ChatGPT, Microsoft Copilot och Le Chat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --peach: #ffd9c8;
+      --apricot: #ffbf94;
+      --sage: #cfe7d3;
+      --mint: #e6f5ea;
+      --sky: #d9efff;
+      --lavender: #e7ddff;
+      --cocoa: #6b4f43;
+      --text: #3f3a37;
+      --card: rgba(255, 255, 255, 0.82);
+      --shadow: 0 14px 36px rgba(58, 52, 84, 0.10);
+      --shadow-soft: 0 6px 18px rgba(58, 52, 84, 0.06);
+      --radius: 28px;
+      --max: 1120px;
+      --plus: #2e7d32;
+      --minus: #a33;
+      --border: rgba(160, 175, 220, 0.14);
+    }
 
-/* light mode */
-:root.light{
-  --bg:#f3f6fb;
-  --bg-2:#eaf3ff;
-  --card:#ffffffcc;
-  --ink:#0f1a2e;
-  --muted:#51607a;
-  --brand:#1fb5d8;
-  --brand-2:#82d9ff;
-  --accent:#ffb703;
-  --good:#10b981;
-  --warn:#f59e0b;
-  --bad:#ef4444;
-  --ring:#36c9ff;
-  --shadow: 0 18px 40px rgba(8,20,60,.10), 0 2px 10px rgba(8,20,60,.06);
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-/* Accessibility: reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{animation:none !important; transition:none !important;}
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff1df 0%, transparent 28%),
+        radial-gradient(circle at top right, #e4f4ff 0%, transparent 26%),
+        linear-gradient(180deg, #fffaf4 0%, #f8fff8 50%, #f7f4ff 100%);
+      line-height: 1.65;
+    }
 
-/* =========================
-   BASE
-========================= */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0; color:var(--ink); background:
-  radial-gradient(1200px 600px at 85% -10%, #1c2f5b 0%, transparent 55%),
-  radial-gradient(900px 600px at -10% 10%, #183257 0%, transparent 50%),
-  linear-gradient(180deg, var(--bg-2), var(--bg));
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  line-height:1.6;
-}
-a{color:var(--brand); text-decoration:none}
-a:hover{text-decoration:underline}
-.container{max-width:1200px;margin:0 auto;padding:0 22px}
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-/* =========================
-   TOP NAV
-========================= */
-.nav{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter: var(--glass);
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-  box-shadow: var(--shadow);
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{
-  display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;
-}
-.brand .logo{width:28px;height:28px}
-.nav a.btn{
-  display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
-  background:linear-gradient(180deg,var(--brand-2),var(--brand)); color:#052235;
-  border:1px solid rgba(255,255,255,.25);
-  text-decoration:none; font-weight:600; box-shadow: var(--shadow);
-}
-.toggle{
-  border:1px solid rgba(255,255,255,.2);
-  background:transparent; color:var(--ink);
-  padding:10px 12px; border-radius:12px; cursor:pointer;
-}
+    header { padding: 28px 0 18px; }
 
-/* =========================
-   HERO
-========================= */
-.hero{
-  padding:72px 0 40px; text-align:center;
-}
-h1{
-  font-family: CalSans, Inter, sans-serif;
-  font-weight:700; letter-spacing:.4px;
-  margin:0 0 12px; font-size: clamp(32px, 5vw, 52px);
-}
-.hero p.lead{max-width:820px;margin:0 auto;color:var(--muted);font-size:clamp(16px,2.2vw,18px)}
-.badges{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-  background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14);
-}
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-soft);
+    }
 
-/* =========================
-   LAYOUT
-========================= */
-.layout{
-  display:grid; grid-template-columns: 270px 1fr; gap: var(--grid-gap); margin-top:24px;
-}
-@media (max-width: 980px){ .layout{grid-template-columns: 1fr} }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--cocoa);
+    }
 
-/* side nav */
-.sidenav{
-  position:sticky; top:88px; align-self:start;
-  backdrop-filter: var(--glass);
-  background: var(--card);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:14px;
-}
-.sidenav h3{margin:4px 8px 10px; font-size:14px; color:var(--brand-2); letter-spacing:.15px}
-.sidenav a{
-  display:flex; align-items:center; gap:10px;
-  padding:10px 12px; border-radius:12px; color:var(--ink); text-decoration:none;
-  border:1px solid transparent;
-}
-.sidenav a:hover{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12)}
-.sidenav a.active{background:rgba(87,210,246,.18); border-color:rgba(87,210,246,.32)}
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--apricot), var(--lavender));
+      font-size: 1.2rem;
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.45);
+    }
 
-/* sections & cards */
-section{scroll-margin-top:100px}
-.block{
-  background: var(--card);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding:22px;
-}
-.block h2{
-  margin:0 0 6px; font-size: clamp(22px,2.5vw,26px); color:var(--brand-2);
-}
-.block .sub{margin:0 0 12px;color:var(--muted)}
-.grid{
-  display:grid; gap: var(--grid-gap);
-  grid-template-columns: repeat(3, minmax(0,1fr));
-}
-@media (max-width: 980px){ .grid{grid-template-columns: 1fr} }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.card{
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px; padding:18px;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-}
-.card h3{margin:0 0 6px}
-.tag{font-size:12px;padding:3px 8px;border-radius:999px;background:rgba(87,210,246,.2);color:#052235}
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.78);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
 
-/* icon chips */
-.chip{display:inline-flex;align-items:center;gap:8px;font-weight:600}
-.ok{color:var(--good)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+    nav a:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
 
-/* pricing */
-.pricing{display:grid; gap:var(--grid-gap); grid-template-columns: repeat(3, minmax(0,1fr));}
-@media (max-width:980px){ .pricing{grid-template-columns:1fr} }
-.plan{
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:16px; padding:20px; position:relative; overflow:hidden;
-}
-.plan .ribbon{
-  position:absolute; top:12px; right:-40px; transform:rotate(35deg);
-  background:linear-gradient(90deg,#86e7ff,#57d2f6); color:#052235;
-  padding:6px 60px; font-weight:700; box-shadow: var(--shadow);
-}
+    .hero { padding: 34px 0 40px; }
 
-/* fact timeline */
-.timeline{position:relative; padding-left:28px}
-.timeline:before{
-  content:""; position:absolute; left:10px; top:2px; bottom:2px; width:2px;
-  background:linear-gradient(180deg,var(--brand-2),transparent);
-}
-.ti{position:relative; margin:14px 0; padding-left:12px}
-.ti:before{
-  content:""; position:absolute; left:-22px; top:6px; width:12px; height:12px; border-radius:50%;
-  background:var(--accent); box-shadow:0 0 0 3px rgba(255,255,255,.1);
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
 
-/* footer */
-footer{padding:30px 0 60px; text-align:center; color:var(--muted)}
+    .hero-card,
+    .illustration,
+    .section-card,
+    .tool-card,
+    .compare-card,
+    .price-card,
+    .note-card,
+    .footer-card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.92);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-/* focus */
-:focus-visible{outline:2px solid var(--ring); outline-offset:2px; border-radius:10px}
-</style>
+    .hero-card {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -40px -50px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,239,255,0.7), rgba(231,221,255,0));
+      pointer-events: none;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #59453c;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4.8vw, 3.9rem);
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 1.04rem;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .btn-primary { background: linear-gradient(135deg, var(--apricot), #ffd7b9); }
+    .btn-secondary { background: linear-gradient(135deg, var(--sky), var(--lavender)); }
+
+    .mini-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fact-chip {
+      background: rgba(255,255,255,0.78);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .fact-chip strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--cocoa);
+      margin-bottom: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .illustration {
+      padding: 22px;
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.88), rgba(255,255,255,0.7)),
+        linear-gradient(180deg, var(--peach), var(--sky));
+    }
+
+    .screen-scene {
+      width: 100%;
+      min-height: 360px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.7), transparent 28%),
+        linear-gradient(180deg, #fff7f2 0%, #eef8ff 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 10px 20px rgba(107,79,67,0.08);
+      border: 1px solid rgba(255,255,255,0.95);
+    }
+
+    .bubble.one {
+      top: 28px;
+      left: 26px;
+      width: 58%;
+      height: 72px;
+    }
+
+    .bubble.two {
+      top: 120px;
+      right: 26px;
+      width: 50%;
+      height: 68px;
+      background: rgba(231,221,255,0.78);
+    }
+
+    .bubble.three {
+      bottom: 88px;
+      left: 34px;
+      width: 46%;
+      height: 64px;
+      background: rgba(217,239,255,0.82);
+    }
+
+    .robot-row {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 20px;
+    }
+
+    .robot {
+      width: 96px;
+      height: 110px;
+      border-radius: 28px;
+      position: relative;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.95);
+      box-shadow: 0 10px 18px rgba(107,79,67,0.08);
+    }
+
+    .robot::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 16px;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--apricot), var(--lavender));
+    }
+
+    .robot::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 66px;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(107,79,67,0.18);
+    }
+
+    section { padding: 18px 0; }
+
+    .section-card { padding: 28px; }
+
+    .tool-grid,
+    .compare-grid,
+    .price-grid,
+    .safety-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tool-grid,
+    .price-grid { grid-template-columns: repeat(3, 1fr); }
+    .compare-grid,
+    .safety-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .tool-card,
+    .compare-card,
+    .price-card,
+    .note-card {
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tool-card::before,
+    .compare-card::before,
+    .price-card::before,
+    .note-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--apricot), var(--sky), var(--lavender));
+      opacity: 0.95;
+    }
+
+    .tool-card:hover,
+    .compare-card:hover,
+    .price-card:hover,
+    .note-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(58, 52, 84, 0.12);
+      border-color: rgba(255,255,255,1);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--peach), var(--lavender));
+    }
+
+    .tool-card:nth-child(2n) .card-icon,
+    .compare-card:nth-child(2n) .card-icon,
+    .price-card:nth-child(2n) .card-icon {
+      background: linear-gradient(135deg, var(--sky), var(--mint));
+    }
+
+    .score {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .plus-list li::before {
+      content: '+ ';
+      font-weight: 800;
+      color: var(--plus);
+      margin-right: 4px;
+    }
+
+    .minus-list li::before {
+      content: '− ';
+      font-weight: 800;
+      color: var(--minus);
+      margin-right: 4px;
+    }
+
+    .check-list li::before {
+      content: '• ';
+      font-weight: 800;
+      color: #7a6b64;
+      margin-right: 4px;
+    }
+
+    .label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .label {
+      background: rgba(255,255,255,0.9);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .note-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(243,252,246,0.88));
+    }
+
+    .footer-card {
+      padding: 26px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(247,241,255,0.92));
+      box-shadow: var(--shadow-soft);
+    }
+
+    footer { padding: 18px 0 40px; }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .tool-grid,
+      .price-grid,
+      .compare-grid,
+      .safety-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        border-radius: 24px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-card,
+      .section-card,
+      .tool-card,
+      .compare-card,
+      .price-card,
+      .note-card,
+      .footer-card,
+      .illustration {
+        padding: 20px;
+      }
+
+      .mini-facts { grid-template-columns: 1fr; }
+      nav { width: 100%; }
+      nav a { flex: 1 1 auto; text-align: center; }
+    }
+  </style>
 </head>
-<body class="light">
-  <!-- NAV -->
-  <div class="nav" role="navigation" aria-label="Huvudmeny">
-    <div class="container nav-wrap">
-      <div class="brand">
-        <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#86e7ff"/><stop offset="1" stop-color="#57d2f6"/>
-            </linearGradient>
-          </defs>
-          <circle cx="24" cy="24" r="22" fill="url(#g)"/>
-          <path d="M16 25c6 2 10-6 16-4" stroke="#052235" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <circle cx="16" cy="18" r="2.2" fill="#052235"/>
-          <circle cx="30" cy="16" r="2.2" fill="#052235"/>
-        </svg>
-        <span>AI‑guide</span>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="logo">
+          <span class="logo-badge">🤖</span>
+          <span>AI-jämförelse</span>
+        </div>
+        <nav>
+          <a href="#oversikt">Översikt</a>
+          <a href="#skillnader">Skillnader</a>
+          <a href="#regler">Regler</a>
+          <a href="#priser">Priser</a>
+        </nav>
       </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="btn" href="#gratis" aria-label="Hoppa till gratiseBtn" aria-pressed="false" aria-label="Växla färgtema">🌙/☀️</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero container">
-    <h1>ChatGPT • Microsoft Copilot • Le Chat</h1>
-    <p class="lead">En uppdelad, snygg och lättläst jämförelse av tre populära AI‑assistenter. Kort, tydlig och kul – men med det viktigaste du behöver.</p>
-    <div class="badges">
-      <span class="badge">🧠 Kreativitet</span>
-      <span class="badge">📊 Produktivitet</span>
-      <span class="badge">🔐 Integritet</span>
-      <span class="badge">💰 Pris</span>
     </div>
   </header>
 
-  <!-- LAYOUT -->
-  <div class="container layout">
-    <!-- Side nav -->
-    <aside class="sidenav" id="sideNav">
-      <h3>Innehåll</h3>
-      #oversikt⭐ Översikt</a>
-      <a href="#jfrrelser</a>
-      <regler🌍 USA vs EU</a>
-      #gdpr🔐 GDPR</a>
-      <aakerhet🛡️ Säkerhet</a>
-      #gratis💸 Gratis</a>
-      #betal💳 Betal</a>
-      #fakta⚠️ Fakta</a>
-      #kallor🔎 Källor</a>
-    </aside>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-card">
+          <h1>ChatGPT, Copilot och Le Chat</h1>
+          <p>
+            Här är en enkel jämförelsesida om tre populära AI-tjänster:
+            ChatGPT, Microsoft Copilot och Le Chat från Mistral.
+          </p>
+          <p>
+            Sidan fokuserar på plus och minus, vad som skiljer dem åt,
+            säkerhet, GDPR, USA kontra EU och gratis- respektive betalversioner.
+          </p>
 
-    <!-- Main -->
-    <main style="display:flex;flex-direction:column;gap:18px">
-      <!-- Översikt -->
-      <section id="oversikt" class="block">
-        <h2>⭐ Översikt</h2>
-        <p class="sub">Tre verktyg – tre styrkor. Välj efter ditt arbetsflöde.</p>
-        <div class="grid">
-          <div class="card">
-            <h3>ChatGPT <span class="tag">Allround</span></h3>
-            <ul>
-              <li class="chip ok">✔ Stark på skrivande och kod.</li>
-              <li>Väldigt flexibel och kreativ i dialog.</li>
-              <li class="chip warn">⚠ Plus‑funktioner krävs för “det bästa”.</li>
-            </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#skillnader">Se skillnader</a>
+            <a class="btn btn-secondary" href="#priser">Se priser</a>
           </div>
-          <div class="card">
-            <h3>Microsoft Copilot <span class="tag">M365</span></h3>
-            <ul>
-              <li class="chip ok">✔ Sömlös i Word/Excel/PowerPoint/Teams.</li>
-              <li>Bra för jobbflöden och dokument.</li>
-              <li class="chip warn">⚠ Känns ibland strikt/”säkerhet först”.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Le Chat (Mistral) <span class="tag">EU‑fokus</span></h3>
-            <ul>
-              <li class="chip ok">✔ EU‑baserad, enkel och snabb.</li>
-              <li>Ofta smidig för GDPR‑krav.</li>
-              <li class="chip bad">✖ Färre integrationer/funktioner.</li>
-            </ul>
+
+          <div class="mini-facts">
+            <div class="fact-chip">
+              <strong>ChatGPT</strong>
+              Stark allround-tjänst för text, idéer och analys.
+            </div>
+            <div class="fact-chip">
+              <strong>Copilot</strong>
+              Starkast när du redan jobbar i Microsoft 365.
+            </div>
+            <div class="fact-chip">
+              <strong>Le Chat</strong>
+              Europeisk aktör med tydlig EU-profil.
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- Jämförelser -->
-      <section id="jfr" class="block">
-        <h2>✔ Fördelar & ✖ Nackdelar</h2>
-        <div class="grid">
-          <div class="card">
+        <div class="illustration">
+          <div class="screen-scene" aria-label="Illustration av tre AI-tjänster">
+            <div class="bubble one"></div>
+            <div class="bubble two"></div>
+            <div class="bubble three"></div>
+            <div class="robot-row">
+              <div class="robot"></div>
+              <div class="robot"></div>
+              <div class="robot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="oversikt">
+      <div class="wrap section-card">
+        <h2>Snabb översikt</h2>
+        <p>Alla tre kan svara på frågor, skriva texter, sammanfatta och hjälpa till med idéer. Den stora skillnaden ligger i ekosystem, dataskydd och hur mycket du får i gratisversionen.</p>
+
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="card-icon">💬</div>
             <h3>ChatGPT</h3>
-            <ul>
-              <li class="ok">✔ Kreativ & mångsidig.</li>
-              <li class="bad">✖ Gratisplanen saknar toppfunktioner.</li>
+            <ul class="check-list">
+              <li>Bra för bred användning och kreativt arbete.</li>
+              <li>Stark på text, förklaringar och idéutveckling.</li>
+              <li>Passar både privat och professionellt.</li>
             </ul>
-          </div>
-          <div class="card">
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">📎</div>
             <h3>Copilot</h3>
-            <ul>
-              <li class="ok">✔ Väldigt bra i Microsoft 365‑miljöer.</li>
-              <li class="warn">⚠ Mindre “fri” i vissa kreativa uppgifter.</li>
+            <ul class="check-list">
+              <li>Stark koppling till Word, Excel, Outlook och Teams.</li>
+              <li>Praktisk för jobbmiljöer och dokumentflöden.</li>
+              <li>Bäst när Microsoft redan är din huvudmiljö.</li>
             </ul>
-          </div>
-          <div class="card">
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">🇪🇺</div>
             <h3>Le Chat</h3>
-            <ul>
-              <li class="ok">✔ Lätt, snabb, EU‑orienterad.</li>
-              <li class="bad">✖ Mindre ekosystem jämfört med de andra.</li>
+            <ul class="check-list">
+              <li>Tydlig europeisk profil genom Mistral.</li>
+              <li>Attraktiv för den som tänker mycket på EU-perspektiv.</li>
+              <li>Känns ofta lätt, snabb och enkel att använda.</li>
             </ul>
-          </div>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Regler -->
-      <section id="regler" class="block">
-        <h2>🌍 USA vs EU‑regler</h2>
-        <p class="sub">Hög nivå – varför det spelar roll för dig.</p>
-        <div class="grid">
-          <div class="card">
-            <h3>USA</h3>
-            <ul>
-              <li>Snabb innovation och flexibilitet i policy.</li>
-              <li>Störst verktygsutbud, ofta “features först”.</li>
+    <section id="skillnader">
+      <div class="wrap section-card">
+        <h2>Plus och minus</h2>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="card-icon">⭐</div>
+            <h3>ChatGPT</h3>
+            <div class="score">+ Plus</div>
+            <ul class="plus-list">
+              <li>Väldigt stark allround.</li>
+              <li>Bra på text, idéer, struktur och förklaringar.</li>
+              <li>Har ofta många funktioner i samma tjänst.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>EU</h3>
-            <ul>
-              <li>Strikt dataskydd (GDPR), AI‑reglering på väg/igång.</li>
-              <li>Mer förutsägbarhet för integritet/avtal.</li>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul class="minus-list">
+              <li>Vissa starka funktioner ligger bakom betalplaner.</li>
+              <li>Inte lika naturligt inbyggd i Microsoft 365 som Copilot.</li>
+              <li>Kan kännas mindre tydlig kring EU-hemvist än Le Chat.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Vad betyder det?</h3>
-            <ul>
-              <li>Dataspår & hosting kan styra verktygsval.</li>
-              <li>Företag i EU prioriterar ofta GDPR‑säker drift.</li>
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">📎</div>
+            <h3>Copilot</h3>
+            <div class="score">+ Plus</div>
+            <ul class="plus-list">
+              <li>Stark koppling till Microsoft 365.</li>
+              <li>Praktisk i arbetsmiljöer med dokument, möten och mejl.</li>
+              <li>Starka företagskontroller i rätt Microsoft-miljö.</li>
             </ul>
-          </div>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul class="minus-list">
+              <li>Blir bäst först när man redan lever i Microsoft-världen.</li>
+              <li>Kan kännas splittrad mellan privat och jobbversioner.</li>
+              <li>Vissa avancerade delar kräver dyrare upplägg.</li>
+            </ul>
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">🌍</div>
+            <h3>Le Chat</h3>
+            <div class="score">+ Plus</div>
+            <ul class="plus-list">
+              <li>Europeisk profil och stark EU-känsla.</li>
+              <li>Attraktiv gratisnivå för många vanliga behov.</li>
+              <li>Känns ofta lätt och snabb att använda.</li>
+            </ul>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul class="minus-list">
+              <li>Mindre etablerat ekosystem än ChatGPT och Microsoft.</li>
+              <li>Färre inbyggda jobbintegrationer än Copilot.</li>
+              <li>Kan vara mindre bekant för vanliga användare.</li>
+            </ul>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- GDPR -->
-      <section id="gdpr" class="block">
-        <h2>🔐 GDPR vs ej GDPR</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>GDPR‑vänligt</h3>
-            <ul>
-              <li class="ok">✔ Minimera data, tydlig transparens.</li>
-              <li>Biträdesavtal & region‑lagring underlättas.</li>
+    <section>
+      <div class="wrap section-card">
+        <h2>Vad skiljer dem åt?</h2>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="card-icon">🧠</div>
+            <h3>ChatGPT sticker ut med</h3>
+            <ul class="check-list">
+              <li>Bred allround-upplevelse i samma produkt.</li>
+              <li>Starkt stöd för kreativt skrivande och resonemang.</li>
+              <li>Passar många olika typer av användare.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Ej GDPR</h3>
-            <ul>
-              <li class="warn">⚠ Risk för bredare datainsamling/överföring.</li>
-              <li>Behöver extra granskning av villkor.</li>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">📁</div>
+            <h3>Copilot sticker ut med</h3>
+            <ul class="check-list">
+             <li>Djup koppling till Word, Excel, PowerPoint, Outlook och Teams.</li>
+<li>Stark i företagsmiljöer där allt redan finns i Microsoft 365.</li>
+<li>Naturligt val för många arbetsplatser.</li>
+<li>Avancerad integration i Microsoft 365-appar kräver oftast Copilot-betalversion.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Tips</h3>
-            <ul>
-              <li>Fråga om datalagring, retention, export.</li>
-              <li>Aktivera loggning & åtkomstkontroller.</li>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">🇫🇷</div>
+            <h3>Le Chat sticker ut med</h3>
+            <ul class="check-list">
+              <li>Tydlig europeisk identitet genom Mistral AI.</li>
+              <li>Lockar användare som prioriterar EU-närhet.</li>
+              <li>Kan kännas som det mest naturliga valet för den som vill undvika ren USA-profil.</li>
             </ul>
-          </div>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">🎯</div>
+            <h3>Enkel slutsats</h3>
+            <ul class="check-list">
+              <li>ChatGPT: bäst allround för många privatpersoner.</li>
+              <li>Copilot: bäst i Microsoft-jobbmiljö.</li>
+              <li>Le Chat: bäst om EU-profil väger tungt.</li>
+            </ul>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Säkerhet -->
-      <section id="sakerhet" class="block">
-        <h2>🛡️ Säkert vs osäkert</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Trygga signaler</h3>
-            <ul>
-              <li>Klart formulerade policyer kring övervakning/vapen.</li>
-              <li>Tekniska skydd: behörighet, loggar, DLP.</li>
+    <section id="regler">
+      <div class="wrap section-card">
+        <h2>USA vs EU, GDPR och säkerhet</h2>
+        <div class="safety-grid">
+          <article class="note-card">
+            <h3>USA vs EU</h3>
+            <p>
+              ChatGPT och Copilot kommer från USA-bolag. Le Chat kommer från europeiska Mistral AI.
+              Det påverkar hur många tänker kring datalagring, jurisdiktion och regelefterlevnad.
+            </p>
+            <div class="label-row">
+              <span class="label">ChatGPT: USA-bolag</span>
+              <span class="label">Copilot: USA-bolag</span>
+              <span class="label">Le Chat: EU-bolag</span>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <h3>GDPR</h3>
+            <p>
+              Alla tre måste förhålla sig till GDPR för användare i EU, men det kan kännas enklare att motivera en europeisk tjänst i vissa organisationer. För arbete är rätt plan och rätt avtal ofta viktigare än själva namnet på tjänsten.
+            </p>
+          </article>
+
+          <article class="note-card">
+            <h3>Säkert vs osäkert</h3>
+            <p>
+              Ingen AI-tjänst är automatiskt säker bara för att den finns. Det beror också på hur den används.
+            </p>
+            <ul class="check-list">
+              <li>Undvik känsliga personuppgifter i vanliga gratischattar.</li>
+              <li>Företagsplaner ger oftast bättre kontroll.</li>
+              <li>EU-profil hjälper, men ersätter inte sunt förnuft.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Riskzoner</h3>
-            <ul>
-              <li>Oklar behandling av känsliga personuppgifter.</li>
-              <li>Politiska beslut som ändrar spelplanen snabbt.</li>
+          </article>
+
+          <article class="note-card">
+            <h3>Praktisk tumregel</h3>
+            <ul class="check-list">
+              <li>Använd aldrig elevuppgifter, patientuppgifter eller interna hemligheter i fel miljö.</li>
+              <li>För jobb och skola behövs ofta en godkänd lösning.</li>
+              <li>Privat gratisversion är inte samma sak som företagsgodkänd AI.</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Rekommendation</h3>
-            <ul>
-              <li>Roll‑/behörighetsstyrning + människa i loopen.</li>
-              <li>Dokumentera prompt‑/output‑flöden.</li>
-            </ul>
-          </div>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Gratis -->
-      <section id="gratis" class="block">
-        <h2>💸 Gratisversioner</h2>
-        <div class="pricing">
-          <div class="plan">
-            <h3>ChatGPT Free</h3>
-            <p>Stadig grund – vissa funktioner saknas.</p>
-            <ul>
-              <li>Text, enkel bild/kod (växlar över tid).</li>
-              <li class="warn">Vissa avancerade lägen kräver Plus.</li>
-            </ul>
-          </div>
-          <div class="plan">
-            <h3>Copilot Free</h3>
-            <div class="ribbon">Bra värde</div>
-            <p>Fin bas i webben + Microsoft‑miljö.</p>
-            <ul>
-              <li>Bra för snabb produktivitet.</li>
-              <li>Fördelen ökar i kombination med M365.</li>
-            </ul>
-          </div>
-          <div class="plan">
-            <h3>Le Chat Free</h3>
-            <p>Lätt och snabb – EU‑vänlig utgångspunkt.</p>
-            <ul>
-              <li>Minimal UI, låg tröskel.</li>
-            </ul>
-          </div>
+    <section id="priser">
+      <div class="wrap section-card">
+        <h2>Gratisversioner och betalversioner</h2>
+        <div class="price-grid">
+          <article class="price-card">
+            <div class="card-icon">🆓</div>
+            <h3>Bäst gratisversion</h3>
+            <p><strong>För de flesta:</strong> ChatGPT eller Le Chat.</p>
+            <p>ChatGPT känns starkast som allround-verktyg. Le Chat känns intressant om EU-profil spelar stor roll.</p>
+          </article>
+
+          <article class="price-card">
+            <div class="card-icon">💳</div>
+            <h3>Bäst betalversion</h3>
+            <p><strong>Allround:</strong> ChatGPT.</p>
+            <p><strong>Jobb i Microsoft 365:</strong> Copilot.</p>
+            <p><strong>EU-vinkel:</strong> Le Chat är intressant för rätt målgrupp.</p>
+          </article>
+
+          <article class="price-card">
+            <div class="card-icon">💸</div>
+            <h3>Billigast betalt</h3>
+            <p>Le Chat ligger ofta lägre i pris än flera konkurrenter.</p>
+            <p>Copilot blir ofta dyrast när man räknar riktig företagsanvändning.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- Betal -->
-      <section id="betal" class="block">
-        <h2>💳 Betalversioner</h2>
-        <div class="pricing">
-          <div class="plan">
-            <h3>ChatGPT Plus ~ $20/mån</h3>
-            <p>Starkast för kreativitet & kod.</p>
-            <ul>
-              <li>Snabbare, fler lägen & verktyg.</li>
-            </ul>
-          </div>
-          <div class="plan">
-            <h3>Copilot Pro ~ $20/mån</h3>
-            <div class="ribbon">För M365</div>
-            <p>Bäst om du lever i Word/Excel/Teams.</p>
-            <ul>
-              <li>Inline‑hjälp i dokument & möten.</li>
-            </ul>
-          </div>
-          <div class="plan">
-            <h3>Le Chat Premium</h3>
-            <p>Ofta billigare, smalare funktionsbredd.</p>
-            <ul>
-              <li>Passar enkel text/QA i EU‑kontext.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Fakta timeline -->
-      <section id="fakta" class="block">
-        <h2>⚠️ Kort fakta: OpenAI & Trump (2026)</h2>
-        <p class="sub">Det korta händelseförloppet – så objektivt som möjligt.</p>
-        <div class="timeline">
-          <div class="ti">
-            <strong>Feb 2026:</strong> Trump‑admin stoppar Anthropic i federal användning efter konflikt om
-            massövervakning/autonoma vapen. (Källa i Källor)
-          </div>
-          <div class="ti">
-            <strong>Samma vecka:</strong> OpenAI skriver avtal med Pentagon med uttalade “röda linjer”:
-            ingen inhemsk massövervakning & människa ansvarig vid våldsanvändning. (Källa i Källor)
-          </div>
-        </div>
-      </section>
-
-      <!-- Källor -->
-      <section id="kallor" class="block">
-        <h2>🔎 Källor</h2>
-        <p class="sub">Artiklar om jämförelser & nyhetsläget 2026:</p>
-        <ul>
-          <li><a href="https://fieldguidetoai.com/guides/ai-tools-comparison-guide" target="_blank" rel="noopener">Field Guide to AI – AI‑verktyg jämförelse (Feb 2026)</a></li>
-          <li><a href="https://zapier.com/blog/copilot-vs-chatgpt/" target="_blank" rel="noopener">Zapier – Copilot vs ChatGPT (Jan 2026)</a></li>
-          <li><a href="https://tactiq.io/learn/copilot-vs-chatgpt-vs-gemini" target="_blank" rel="noopener">Tactiq – Copilot vs ChatGPT vs Gemini (Jan 2026)</a></li>
-          <li><a href="https://aiwisepicks.com/ai-comparisons/chatgpt-vs-microsoft-copilot/" target="_blank" rel="noopener">AIWisePicks – test (Jan 2026)</a></li>
-          <li><a href="https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html" target="_blank" rel="noopener">CNBC – OpenAI/Pentagon (Feb 27, 2026)</a></li>
-          <li><a href="https://www.yahoo.com/news/articles/openai-reaches-deal-pentagon-trump-205852664.html" target="_blank" rel="noopener">UPI/Yahoo – OpenAI/Pentagon (Feb 28, 2026)</a></li>
-          <li><a href="https://www.techrepublic.com/article/news-openai-pentagon-deal-anthropic-federal-ban/" target="_blank" rel="noopener">TechRepublic – sammanfattning (Mar 2, 2026)</a></li>
-        </ul>
-      </section>
-    </main>
-  </div>
-
-  <footer class="container">
-    © 2026 — Designad för GitHub Pages. Lugn men glad palett, glas‑effekt, mörkt/ljust läge, scroll‑spy.
+  <footer>
+    <div class="wrap">
+      <div class="footer-card">
+        <h2>Tre olika styrkor</h2>
+        <p>ChatGPT för allround. Copilot för Microsoft. Le Chat för EU-profil.</p>
+        <p>Gjort som en separat sida, utan att röra tax-sidan.</p>
+      </div>
+    </div>
   </footer>
-
-<script>
-/* Dark/Light mode toggle (sparar i localStorage) */
-const body = document.body;
-const btn = document.getElementById('modeBtn');
-const saved = localStorage.getItem('mode');
-if(saved === 'dark'){ body.classList.remove('light'); btn.setAttribute('aria-pressed','true'); }
-btn.addEventListener('click', ()=>{
-  const isLight = body.classList.toggle('light');
-  btn.setAttribute('aria-pressed', String(!isLight));
-  localStorage.setItem('mode', isLight ? 'light' : 'dark');
-});
-
-/* Scroll‑spy för sidomenyn */
-const links = [...document.querySelectorAll('#sideNav a')];
-const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-const opt = {rootMargin: '-40% 0px -55% 0px', threshold: 0};
-const obs = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    const i = sections.indexOf(entry.target);
-    if(i >= 0){
-      const link = links[i];
-      if(entry.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        link.classList.add('active');
-        history.replaceState(null,'', link.getAttribute('href')); // uppdatera hash utan hopp
-      }
-    }
-  });
-}, opt);
-sections.forEach(s=> s && obs.observe(s));
-</script>
 </body>
 </html>
