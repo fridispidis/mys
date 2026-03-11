@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taxar – små hundar med stor personlighet</title>
+  <title>ChatGPT, Copilot och Le Chat – jämförelse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
@@ -21,17 +21,11 @@
       --card: rgba(255, 255, 255, 0.78);
       --shadow: 0 10px 28px rgba(107, 79, 67, 0.12);
       --radius: 24px;
-      --radius-small: 16px;
-      --max: 1100px;
+      --max: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -49,9 +43,7 @@
       margin: 0 auto;
     }
 
-    header {
-      padding: 28px 0 18px;
-    }
+    header { padding: 28px 0 18px; }
 
     .topbar {
       display: flex;
@@ -107,13 +99,11 @@
       background: #ffffff;
     }
 
-    .hero {
-      padding: 34px 0 40px;
-    }
+    .hero { padding: 34px 0 40px; }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -122,9 +112,10 @@
     .illustration,
     .section-card,
     .fact-card,
-    .type-card,
-    .color-card,
-    .timeline-card,
+    .tool-card,
+    .compare-card,
+    .price-card,
+    .note-card,
     .footer-card {
       background: var(--card);
       backdrop-filter: blur(10px);
@@ -133,9 +124,7 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-card {
-      padding: 34px;
-    }
+    .hero-card { padding: 34px; }
 
     .eyebrow {
       display: inline-block;
@@ -156,18 +145,10 @@
       margin: 0 0 14px;
     }
 
-    h1 {
-      font-size: clamp(2.3rem, 5vw, 4rem);
-    }
+    h1 { font-size: clamp(2.1rem, 4.8vw, 3.8rem); }
+    h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); }
 
-    h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-    }
-
-    p {
-      margin: 0 0 14px;
-      font-size: 1.05rem;
-    }
+    p { margin: 0 0 14px; font-size: 1.04rem; }
 
     .hero-actions {
       display: flex;
@@ -187,13 +168,8 @@
       color: var(--text);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--apricot), #ffd7b9);
-    }
-
-    .btn-secondary {
-      background: linear-gradient(135deg, var(--sky), var(--lavender));
-    }
+    .btn-primary { background: linear-gradient(135deg, var(--apricot), #ffd7b9); }
+    .btn-secondary { background: linear-gradient(135deg, var(--sky), var(--lavender)); }
 
     .mini-facts {
       display: grid;
@@ -225,7 +201,7 @@
         linear-gradient(180deg, var(--peach), var(--sky));
     }
 
-    .dog-scene {
+    .screen-scene {
       width: 100%;
       min-height: 360px;
       border-radius: 22px;
@@ -234,195 +210,108 @@
         linear-gradient(180deg, #fff7f2 0%, #eef8ff 100%);
       position: relative;
       overflow: hidden;
-    }
-
-    .sun {
-      position: absolute;
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
-      right: 24px;
-      top: 22px;
-      background: #ffe59c;
-      opacity: 0.9;
-    }
-
-    .hill {
-      position: absolute;
-      left: -5%;
-      width: 110%;
-      border-radius: 50%;
-    }
-
-    .hill.one {
-      bottom: 38px;
-      height: 120px;
-      background: #d9efdb;
-    }
-
-    .hill.two {
-      bottom: -30px;
-      height: 135px;
-      background: #c2e1c8;
-    }
-
-    .dog {
-      position: absolute;
-      left: 50%;
-      top: 56%;
-      transform: translate(-50%, -50%);
-      width: 270px;
-      height: 160px;
-    }
-
-    .body {
-      position: absolute;
-      left: 50px;
-      top: 58px;
-      width: 150px;
-      height: 54px;
-      border-radius: 30px;
-      background: #b77447;
-    }
-
-    .chest {
-      position: absolute;
-      left: 62px;
-      top: 70px;
-      width: 48px;
-      height: 30px;
-      border-radius: 18px;
-      background: #f4d8bf;
-    }
-
-    .head {
-      position: absolute;
-      left: 10px;
-      top: 38px;
-      width: 82px;
-      height: 68px;
-      border-radius: 42px;
-      background: #b77447;
-      z-index: 2;
-    }
-
-    .snout {
-      position: absolute;
-      left: 2px;
-      top: 20px;
-      width: 42px;
-      height: 28px;
-      border-radius: 18px;
-      background: #f3d5bb;
-    }
-
-    .ear {
-      position: absolute;
-      top: 54px;
-      width: 28px;
-      height: 62px;
-      border-radius: 20px;
-      background: #99603b;
-      z-index: 1;
-    }
-
-    .ear.left { left: 24px; transform: rotate(12deg); }
-    .ear.right { left: 52px; transform: rotate(-6deg); }
-
-    .eye {
-      position: absolute;
-      top: 23px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #2f2724;
-    }
-
-    .eye.one { left: 44px; }
-    .eye.two { left: 60px; }
-
-    .nose {
-      position: absolute;
-      left: 4px;
-      top: 28px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #2f2724;
-    }
-
-    .leg {
-      position: absolute;
-      width: 16px;
-      height: 72px;
-      border-radius: 14px;
-      background: #9b603b;
-      top: 84px;
-    }
-
-    .leg::after {
-      content: '';
-      position: absolute;
-      left: -3px;
-      bottom: 0;
-      width: 22px;
-      height: 10px;
-      border-radius: 10px;
-      background: #7e4d2f;
-    }
-
-    .leg.a { left: 75px; }
-    .leg.b { left: 112px; }
-    .leg.c { left: 170px; }
-    .leg.d { left: 202px; }
-
-    .tail {
-      position: absolute;
-      right: 16px;
-      top: 56px;
-      width: 54px;
-      height: 12px;
-      border-radius: 12px;
-      background: #9a633d;
-      transform: rotate(28deg);
-      transform-origin: left center;
-    }
-
-    section {
-      padding: 18px 0;
-    }
-
-    .section-card {
       padding: 28px;
     }
 
-    .facts-grid,
-    .types-grid,
-    .colors-grid {
+    .bubble {
+      position: absolute;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 10px 20px rgba(107,79,67,0.08);
+      border: 1px solid rgba(255,255,255,0.95);
+    }
+
+    .bubble.one {
+      top: 28px;
+      left: 26px;
+      width: 58%;
+      height: 72px;
+    }
+
+    .bubble.two {
+      top: 120px;
+      right: 26px;
+      width: 50%;
+      height: 68px;
+      background: rgba(231,221,255,0.78);
+    }
+
+    .bubble.three {
+      bottom: 88px;
+      left: 34px;
+      width: 46%;
+      height: 64px;
+      background: rgba(217,239,255,0.82);
+    }
+
+    .robot-row {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 20px;
+    }
+
+    .robot {
+      width: 96px;
+      height: 110px;
+      border-radius: 28px;
+      position: relative;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.95);
+      box-shadow: 0 10px 18px rgba(107,79,67,0.08);
+    }
+
+    .robot::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 16px;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--apricot), var(--lavender));
+    }
+
+    .robot::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 66px;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(107,79,67,0.18);
+    }
+
+    section { padding: 18px 0; }
+    .section-card { padding: 28px; }
+
+    .intro-grid,
+    .tool-grid,
+    .compare-grid,
+    .price-grid,
+    .safety-grid {
       display: grid;
       gap: 18px;
     }
 
-    .facts-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .types-grid {
-      grid-template-columns: repeat(3, 1fr);
-      margin-top: 18px;
-    }
-
-    .colors-grid {
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 18px;
-    }
+    .intro-grid { grid-template-columns: repeat(3, 1fr); }
+    .tool-grid { grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
+    .compare-grid { grid-template-columns: repeat(2, 1fr); margin-top: 18px; }
+    .price-grid { grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
+    .safety-grid { grid-template-columns: repeat(2, 1fr); margin-top: 18px; }
 
     .fact-card,
-    .type-card,
-    .color-card,
-    .timeline-card {
-      padding: 22px;
-    }
+    .tool-card,
+    .compare-card,
+    .price-card,
+    .note-card { padding: 22px; }
 
     .card-icon {
       width: 48px;
@@ -435,68 +324,43 @@
       background: linear-gradient(135deg, var(--peach), var(--lavender));
     }
 
-    .type-card:nth-child(2n) .card-icon,
-    .fact-card:nth-child(2n) .card-icon {
+    .tool-card:nth-child(2n) .card-icon,
+    .fact-card:nth-child(2n) .card-icon,
+    .compare-card:nth-child(2n) .card-icon,
+    .price-card:nth-child(2n) .card-icon {
       background: linear-gradient(135deg, var(--sky), var(--mint));
     }
 
-    .type-card:nth-child(3n) .card-icon,
-    .color-card:nth-child(2n) .color-swatch {
-      background: linear-gradient(135deg, var(--sage), var(--peach));
+    ul { margin: 10px 0 0; padding-left: 18px; }
+    li { margin-bottom: 6px; }
+
+    .score {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
-    .type-card ul,
-    .timeline-card ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-    }
-
-    .type-card li,
-    .timeline-card li {
-      margin-bottom: 6px;
-    }
-
-    .color-swatch {
-      width: 100%;
-      height: 68px;
-      border-radius: 18px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: inset 0 2px 8px rgba(255,255,255,0.45);
-    }
-
-    .swatch-red { background: linear-gradient(135deg, #7a3b2f, #bf6c4e); }
-    .swatch-black { background: linear-gradient(135deg, #1f1d1e, #5d4a43); }
-    .swatch-choco { background: linear-gradient(135deg, #5a3d2b, #9b6b48); }
-    .swatch-cream { background: linear-gradient(135deg, #f2d9b9, #fff1d9); }
-
-    .origin-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .timeline-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(243,252,246,0.85));
-    }
-
-    .badge-row {
+    .label-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 14px;
     }
 
-    .badge {
+    .label {
       background: rgba(255,255,255,0.9);
       padding: 8px 12px;
       border-radius: 999px;
       font-weight: 700;
     }
 
-    footer {
-      padding: 18px 0 40px;
+    .note-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(243,252,246,0.88));
     }
 
     .footer-card {
@@ -505,26 +369,16 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.82), rgba(247,241,255,0.86));
     }
 
-    .footer-card p:last-child {
-      margin-bottom: 0;
-    }
+    footer { padding: 18px 0 40px; }
 
     @media (max-width: 980px) {
       .hero-grid,
-      .origin-layout {
+      .tool-grid,
+      .price-grid,
+      .intro-grid,
+      .compare-grid,
+      .safety-grid {
         grid-template-columns: 1fr;
-      }
-
-      .facts-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .types-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .colors-grid {
-        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -538,32 +392,18 @@
       .hero-card,
       .section-card,
       .fact-card,
-      .type-card,
-      .color-card,
-      .timeline-card,
+      .tool-card,
+      .compare-card,
+      .price-card,
+      .note-card,
       .footer-card,
       .illustration {
         padding: 20px;
       }
 
-      .mini-facts,
-      .facts-grid,
-      .colors-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        width: 100%;
-      }
-
-      nav a {
-        flex: 1 1 auto;
-        text-align: center;
-      }
-
-      .dog {
-        transform: translate(-50%, -50%) scale(0.9);
-      }
+      .mini-facts { grid-template-columns: 1fr; }
+      nav { width: 100%; }
+      nav a { flex: 1 1 auto; text-align: center; }
     }
   </style>
 </head>
@@ -572,14 +412,14 @@
     <div class="wrap">
       <div class="topbar">
         <div class="logo">
-          <span class="logo-badge">🐾</span>
-          <span>Taxvärlden</span>
+          <span class="logo-badge">🤖</span>
+          <span>AI-jämförelse</span>
         </div>
         <nav>
-          <a href="#fakta">Fakta</a>
-          <a href="#raser">Taxraser</a>
-          <a href="#farger">Färger</a>
-          <a href="#ursprung">Ursprung</a>
+          <a href="#oversikt">Översikt</a>
+          <a href="#skillnader">Skillnader</a>
+          <a href="#regler">Regler & GDPR</a>
+          <a href="#priser">Priser</a>
         </nav>
       </div>
     </div>
@@ -589,205 +429,294 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-card">
-          <span class="eyebrow">Små ben • stor personlighet</span>
-          <h1>Allt om taxar</h1>
+          <span class="eyebrow">Enkel jämförelse • lugn design</span>
+          <h1>ChatGPT, Copilot och Le Chat</h1>
           <p>
-            Taxen är en liten hund med lång kropp, korta ben och mycket charm.
-            Den är modig, smart, ofta ganska envis och väldigt trogen sin familj.
+            Här är en enkel jämförelsesida om tre populära AI-tjänster:
+            ChatGPT, Microsoft Copilot och Le Chat från Mistral.
           </p>
           <p>
-            Här hittar du enkel fakta om taxar: hur de ser ut, vilka färger de kan ha,
-            vilka varianter som finns och var rasen kommer ifrån.
+            Sidan fokuserar på plus och minus, vad som skiljer dem åt,
+            säkerhet, GDPR, USA kontra EU och gratis- respektive betalversioner.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#raser">Se taxraserna</a>
-            <a class="btn btn-secondary" href="#farger">Se färgerna</a>
+            <a class="btn btn-primary" href="#skillnader">Se skillnader</a>
+            <a class="btn btn-secondary" href="#priser">Se priser</a>
           </div>
 
           <div class="mini-facts">
             <div class="fact-chip">
-              <strong>Personlighet</strong>
-              Modig, alert och ofta lite busig.
+              <strong>ChatGPT</strong>
+              Stark allround-tjänst för text, analys och många verktyg.
             </div>
             <div class="fact-chip">
-              <strong>Storlek</strong>
-              Liten hund, men med stort självförtroende.
+              <strong>Copilot</strong>
+              Starkast när man jobbar i Microsofts ekosystem.
             </div>
             <div class="fact-chip">
-              <strong>Bakgrund</strong>
-              Ursprungligen framtagen för jakt.
+              <strong>Le Chat</strong>
+              Europeisk aktör med tydlig EU-profil och snabb utveckling.
             </div>
           </div>
         </div>
 
         <div class="illustration">
-          <div class="dog-scene" aria-label="Illustration av en tax">
-            <div class="sun"></div>
-            <div class="dog">
-              <div class="ear left"></div>
-              <div class="ear right"></div>
-              <div class="head">
-                <div class="snout"></div>
-                <div class="eye one"></div>
-                <div class="eye two"></div>
-                <div class="nose"></div>
-              </div>
-              <div class="body"></div>
-              <div class="chest"></div>
-              <div class="leg a"></div>
-              <div class="leg b"></div>
-              <div class="leg c"></div>
-              <div class="leg d"></div>
-              <div class="tail"></div>
+          <div class="screen-scene" aria-label="Illustration av tre AI-tjänster">
+            <div class="bubble one"></div>
+            <div class="bubble two"></div>
+            <div class="bubble three"></div>
+            <div class="robot-row">
+              <div class="robot"></div>
+              <div class="robot"></div>
+              <div class="robot"></div>
             </div>
-            <div class="hill one"></div>
-            <div class="hill two"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="fakta">
+    <section id="oversikt">
       <div class="wrap section-card">
-        <h2>Snabb fakta om taxar</h2>
-        <p>Taxar ser speciella ut, men det är just det som gör dem så lätta att känna igen.</p>
+        <h2>Snabb översikt</h2>
+        <p>Alla tre kan svara på frågor, skriva texter, sammanfatta och hjälpa till med idéer. Det som skiljer mest är ekosystem, regler, dataskydd och hur mycket man får i gratisversionen.</p>
 
-        <div class="facts-grid">
+        <div class="intro-grid">
           <article class="fact-card">
-            <div class="card-icon">🐶</div>
-            <h3>Kroppsform</h3>
-            <p>Taxen har lång rygg, korta ben och ett piggt uttryck.</p>
+            <div class="card-icon">💬</div>
+            <h3>ChatGPT</h3>
+            <p>Bra för bred användning, kreativt arbete, skrivhjälp, analys och verktyg i samma gränssnitt.</p>
           </article>
 
           <article class="fact-card">
-            <div class="card-icon">💛</div>
-            <h3>Temperament</h3>
-            <p>Den kan vara kärleksfull, lojal och väldigt bestämd.</p>
+            <div class="card-icon">🗂️</div>
+            <h3>Copilot</h3>
+            <p>Bra för jobb i Word, Excel, Teams, Outlook och annan Microsoft-miljö.</p>
           </article>
 
           <article class="fact-card">
+            <div class="card-icon">🇪🇺</div>
+            <h3>Le Chat</h3>
+            <p>Bra för den som vill ha en europeisk AI-tjänst med tydlig EU-koppling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skillnader">
+      <div class="wrap section-card">
+        <h2>Plus och minus</h2>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="card-icon">⭐</div>
+            <h3>ChatGPT</h3>
+            <div class="score">+ Plus</div>
+            <ul>
+              <li>Väldigt stark allround.</li>
+              <li>Bra på text, idéer, struktur och förklaringar.</li>
+              <li>Har ofta många funktioner i samma tjänst.</li>
+            </ul>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul>
+              <li>Kan kännas mindre tydlig kring EU-hemvist än Le Chat.</li>
+              <li>Vissa starka funktioner ligger bakom betalplaner.</li>
+              <li>Inte lika naturligt inbyggd i Microsoft 365 som Copilot.</li>
+            </ul>
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">📎</div>
+            <h3>Copilot</h3>
+            <div class="score">+ Plus</div>
+            <ul>
+              <li>Stark koppling till Microsoft 365.</li>
+              <li>Praktisk i arbetsmiljöer med dokument, möten och mejl.</li>
+              <li>Starka företagskontroller i rätt Microsoft-miljö.</li>
+            </ul>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul>
+              <li>Blir bäst först när man redan lever i Microsoft-världen.</li>
+              <li>Kan kännas mer splittrad mellan privat och jobbversioner.</li>
+              <li>Vissa avancerade delar kräver dyrare upplägg.</li>
+            </ul>
+          </article>
+
+          <article class="tool-card">
+            <div class="card-icon">🌍</div>
+            <h3>Le Chat</h3>
+            <div class="score">+ Plus</div>
+            <ul>
+              <li>Europeisk profil och stark EU-känsla.</li>
+              <li>Attraktiv gratisnivå för många vanliga behov.</li>
+              <li>Känns ofta lätt och snabb att använda.</li>
+            </ul>
+            <div class="score" style="margin-top:14px;">− Minus</div>
+            <ul>
+              <li>Mindre etablerat ekosystem än ChatGPT och Microsoft.</li>
+              <li>Färre inbyggda jobbintegrationer än Copilot.</li>
+              <li>Kan vara mindre bekant för vanliga användare.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap section-card">
+        <h2>Vad kan varje tjänst göra som de andra inte gör lika bra?</h2>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="card-icon">🧠</div>
+            <h3>ChatGPT sticker ut med</h3>
+            <ul>
+              <li>Mycket bred allround-upplevelse i samma produkt.</li>
+              <li>Starkt stöd för kreativt skrivande, resonemang och variation i ton.</li>
+              <li>Ofta tidig tillgång till nya AI-funktioner i konsumentgränssnittet.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">📁</div>
+            <h3>Copilot sticker ut med</h3>
+            <ul>
+              <li>Djup koppling till Word, Excel, PowerPoint, Outlook och Teams.</li>
+              <li>Styrka i företagsmiljöer där filer, möten och identitet redan finns i Microsoft 365.</li>
+              <li>Enterprise data protection i rätt kontomiljö.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">🇫🇷</div>
+            <h3>Le Chat sticker ut med</h3>
+            <ul>
+              <li>Tydlig europeisk identitet genom Mistral AI.</li>
+              <li>Lockar användare som prioriterar EU-närhet och europeiska leverantörer.</li>
+              <li>Kan kännas som det mest naturliga valet för den som aktivt vill undvika en ren USA-profil.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
             <div class="card-icon">🎯</div>
-            <h3>Användning</h3>
-            <p>Rasen avlades fram för att jaga djur som gick ner i gryt och tunnlar.</p>
-          </article>
-
-          <article class="fact-card">
-            <div class="card-icon">🏡</div>
-            <h3>Vardag</h3>
-            <p>Många taxar älskar att mysa hemma, men de behöver också aktivitet och nosarbete.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="raser">
-      <div class="wrap section-card">
-        <h2>Vilka slags taxar finns?</h2>
-        <p>
-          Taxar delas ofta in efter päls. Det finns också olika storlekar,
-          men här är de tre vanligaste pälsvarianterna.
-        </p>
-
-        <div class="types-grid">
-          <article class="type-card">
-            <div class="card-icon">✨</div>
-            <h3>Korthårig tax</h3>
-            <p>Har slät, blank päls som ligger nära kroppen.</p>
+            <h3>Enkel slutsats</h3>
             <ul>
-              <li>Enkel att känna igen</li>
-              <li>Ser elegant och klassisk ut</li>
-              <li>Vanlig variant i många länder</li>
-            </ul>
-          </article>
-
-          <article class="type-card">
-            <div class="card-icon">🌿</div>
-            <h3>Långhårig tax</h3>
-            <p>Har mjukare och längre päls, ofta med lite mer fluff på öron och svans.</p>
-            <ul>
-              <li>Ser mjuk och lite extra stilig ut</li>
-              <li>Behöver mer pälsvård</li>
-              <li>Ofta väldigt charmig i uttrycket</li>
-            </ul>
-          </article>
-
-          <article class="type-card">
-            <div class="card-icon">🪴</div>
-            <h3>Strävhårig tax</h3>
-            <p>Har sträv päls och ofta tydliga ögonbryn och skägg.</p>
-            <ul>
-              <li>Lite rufsig och härlig look</li>
-              <li>Ser extra busig ut</li>
-              <li>Behöver särskild pälsvård ibland</li>
+              <li>ChatGPT: bäst allround för många privatpersoner.</li>
+              <li>Copilot: bäst i Microsoft-jobbmiljö.</li>
+              <li>Le Chat: bäst om EU-profil väger tungt.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="farger">
+    <section id="regler">
       <div class="wrap section-card">
-        <h2>Vilka färger kan taxar ha?</h2>
-        <p>Taxar finns i flera färger och mönster. Här är några vanliga exempel.</p>
-
-        <div class="colors-grid">
-          <article class="color-card">
-            <div class="color-swatch swatch-red"></div>
-            <h3>Röd</h3>
-            <p>En klassisk taxfärg som kan gå från ljusare röd till djupare rödbrun.</p>
-          </article>
-
-          <article class="color-card">
-            <div class="color-swatch swatch-black"></div>
-            <h3>Svart med tantecken</h3>
-            <p>Svart päls med ljusare markeringar vid exempelvis ögon, bröst och ben.</p>
-          </article>
-
-          <article class="color-card">
-            <div class="color-swatch swatch-choco"></div>
-            <h3>Brun med tantecken</h3>
-            <p>Liknar svart med tantecken, men i en mjukare brun ton.</p>
-          </article>
-
-          <article class="color-card">
-            <div class="color-swatch swatch-cream"></div>
-            <h3>Ljusare nyanser</h3>
-            <p>Vissa taxar har ljusare eller mer ovanliga nyanser beroende på linje och pälsvariant.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="ursprung">
-      <div class="wrap section-card">
-        <h2>Var kommer taxen ifrån?</h2>
-        <div class="origin-layout">
-          <article class="timeline-card">
-            <h3>Ursprung och bakgrund</h3>
+        <h2>USA vs EU-regler, GDPR och säkerhet</h2>
+        <div class="safety-grid">
+          <article class="note-card">
+            <h3>USA vs EU</h3>
             <p>
-              Taxen kommer från Tyskland. Namnet hänger ihop med ordet för grävling,
-              eftersom rasen användes i jakt på djur som kunde gömma sig i gångar under marken.
+              ChatGPT och Copilot kommer från USA-bolag. Le Chat kommer från europeiska Mistral AI.
+              Det betyder inte automatiskt att en tjänst är osäker eller säker, men det påverkar hur många tänker kring datalagring,
+              jurisdiktion och regelefterlevnad.
             </p>
-            <p>
-              Den långa kroppen och de korta benen gjorde det lättare för hunden att ta sig fram
-              i trånga utrymmen.
-            </p>
-            <div class="badge-row">
-              <span class="badge">Ursprung: Tyskland</span>
-              <span class="badge">Framavlad för jakt</span>
-              <span class="badge">Känd för mod</span>
+            <div class="label-row">
+              <span class="label">ChatGPT: USA-bolag</span>
+              <span class="label">Copilot: USA-bolag</span>
+              <span class="label">Le Chat: EU-bolag</span>
             </div>
           </article>
 
-          <article class="timeline-card">
-            <h3>Det enkla svaret</h3>
+          <article class="note-card">
+            <h3>GDPR vs ej GDPR</h3>
+            <p>
+              Alla tre måste förhålla sig till GDPR när de behandlar personuppgifter om användare i EU,
+              men det är skillnad på hur enkelt det kan vara att känna sig trygg som europeisk organisation.
+              Le Chat har en tydligare EU-position. Copilot är starkt i företagsmiljöer med Microsofts skydd.
+              ChatGPT har också företagsfunktioner och europeiska datalösningar i vissa planer.
+            </p>
+          </article>
+
+          <article class="note-card">
+            <h3>Säkert vs osäkert</h3>
+            <p>
+              Ingen AI-tjänst är "säker" bara för att den finns. Säkerheten beror också på hur du använder den.
+              Att klistra in känsliga personuppgifter, elevuppgifter, patientuppgifter eller interna hemligheter i fel miljö är riskabelt.
+            </p>
             <ul>
-              <li>Taxen är en gammal hundras.</li>
-              <li>Den kommer från Tyskland.</li>
-              <li>Den användes från början som jakthund.</li>
-              <li>I dag är den både sällskapshund och arbetande hund.</li>
+              <li>Privat gratisversion = ofta mer försiktighet behövs.</li>
+              <li>Företagsplaner = oftast bättre kontroll och starkare dataskydd.</li>
+              <li>EU-profil hjälper, men ersätter inte eget ansvar.</li>
             </ul>
+          </article>
+
+          <article class="note-card">
+            <h3>Praktisk tumregel</h3>
+            <ul>
+              <li>Använd aldrig känsliga uppgifter i vanliga gratischattar på jobbet.</li>
+              <li>För skola och offentlig verksamhet behövs ofta tydlig policy och godkänd lösning.</li>
+              <li>Vill du vara extra försiktig är företagslösningar bättre än privatkonton.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="priser">
+      <div class="wrap section-card">
+        <h2>Gratisversioner och betalversioner</h2>
+        <div class="price-grid">
+          <article class="price-card">
+            <div class="card-icon">🆓</div>
+            <h3>Bäst gratisversion</h3>
+            <p><strong>För de flesta:</strong> ChatGPT eller Le Chat.</p>
+            <p>ChatGPT känns starkast som allround-verktyg. Le Chat känns ofta generös och intressant om EU-profil spelar stor roll.</p>
+            <p>Copilot gratis är mest lockande om du redan använder Microsoft mycket.</p>
+          </article>
+
+          <article class="price-card">
+            <div class="card-icon">💳</div>
+            <h3>Bäst betalversion</h3>
+            <p><strong>Allround:</strong> ChatGPT.</p>
+            <p><strong>Jobb i Microsoft 365:</strong> Copilot.</p>
+            <p><strong>EU-vinkel och lägre pris än flera konkurrenter:</strong> Le Chat Pro kan vara väldigt intressant.</p>
+          </article>
+
+          <article class="price-card">
+            <div class="card-icon">💸</div>
+            <h3>Billigast betalt</h3>
+            <p>Le Chat Pro brukar ligga lägre än vanliga premiumplaner hos flera konkurrenter.</p>
+            <p>ChatGPT Plus ligger i mellanläget. Copilot för full jobbintegration blir ofta dyrast när man räknar riktig företagsanvändning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap section-card">
+        <h2>En enkel slutsats</h2>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="card-icon">🏆</div>
+            <h3>Välj ChatGPT om...</h3>
+            <p>du vill ha den mest mångsidiga tjänsten för text, idéer, analys och vardagsanvändning.</p>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">🏢</div>
+            <h3>Välj Copilot om...</h3>
+            <p>du jobbar mycket i Microsoft 365 och vill ha AI nära dokument, möten och mejl.</p>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">🇪🇺</div>
+            <h3>Välj Le Chat om...</h3>
+            <p>du vill ha en AI-tjänst med tydlig europeisk profil och känner att det väger tungt.</p>
+          </article>
+
+          <article class="compare-card">
+            <div class="card-icon">⚠️</div>
+            <h3>Det viktigaste ändå</h3>
+            <p>För jobb, skola och känsliga uppgifter är det viktigare att använda rätt plan och rätt policy än att bara välja "rätt" AI-namn.</p>
           </article>
         </div>
       </div>
@@ -797,9 +726,9 @@
   <footer>
     <div class="wrap">
       <div class="footer-card">
-        <h2>Taxar i ett nötskal</h2>
-        <p>Små, långa, modiga och väldigt lätta att tycka om.</p>
-        <p>En enkel hemsida om en hundras med mycket personlighet.</p>
+        <h2>Tre olika styrkor</h2>
+        <p>ChatGPT för allround. Copilot för Microsoft. Le Chat för EU-profil.</p>
+        <p>Byggd i samma lugna, färgglada stil som din tax-sida.</p>
       </div>
     </div>
   </footer>
