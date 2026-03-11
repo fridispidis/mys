@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxar – små hundar med stor personlighet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --peach: #ffd9c8;
+      --apricot: #ffbf94;
+      --sage: #cfe7d3;
+      --mint: #e6f5ea;
+      --sky: #d9efff;
+      --lavender: #e7ddff;
+      --cocoa: #6b4f43;
+      --text: #3f3a37;
+      --card: rgba(255, 255, 255, 0.78);
+      --shadow: 0 10px 28px rgba(107, 79, 67, 0.12);
+      --radius: 24px;
+      --radius-small: 16px;
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff1df 0%, transparent 28%),
+        radial-gradient(circle at top right, #e4f4ff 0%, transparent 26%),
+        linear-gradient(180deg, #fffaf4 0%, #f8fff8 50%, #f7f4ff 100%);
+      line-height: 1.65;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0 18px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      color: var(--cocoa);
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--apricot), var(--lavender));
+      font-size: 1.2rem;
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.45);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.7);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+    }
+
+    .hero {
+      padding: 34px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .illustration,
+    .section-card,
+    .fact-card,
+    .type-card,
+    .color-card,
+    .timeline-card,
+    .footer-card {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--mint);
+      color: #4f6b55;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Quicksand', sans-serif;
+      color: var(--cocoa);
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--apricot), #ffd7b9);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--sky), var(--lavender));
+    }
+
+    .mini-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fact-chip {
+      background: rgba(255,255,255,0.78);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .fact-chip strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--cocoa);
+      margin-bottom: 4px;
+    }
+
+    .illustration {
+      padding: 22px;
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.88), rgba(255,255,255,0.7)),
+        linear-gradient(180deg, var(--peach), var(--sky));
+    }
+
+    .dog-scene {
+      width: 100%;
+      min-height: 360px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.7), transparent 28%),
+        linear-gradient(180deg, #fff7f2 0%, #eef8ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sun {
+      position: absolute;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      right: 24px;
+      top: 22px;
+      background: #ffe59c;
+      opacity: 0.9;
+    }
+
+    .hill {
+      position: absolute;
+      left: -5%;
+      width: 110%;
+      border-radius: 50%;
+    }
+
+    .hill.one {
+      bottom: 38px;
+      height: 120px;
+      background: #d9efdb;
+    }
+
+    .hill.two {
+      bottom: -30px;
+      height: 135px;
+      background: #c2e1c8;
+    }
+
+    .dog {
+      position: absolute;
+      left: 50%;
+      top: 56%;
+      transform: translate(-50%, -50%);
+      width: 270px;
+      height: 160px;
+    }
+
+    .body {
+      position: absolute;
+      left: 50px;
+      top: 58px;
+      width: 150px;
+      height: 54px;
+      border-radius: 30px;
+      background: #b77447;
+    }
+
+    .chest {
+      position: absolute;
+      left: 62px;
+      top: 70px;
+      width: 48px;
+      height: 30px;
+      border-radius: 18px;
+      background: #f4d8bf;
+    }
+
+    .head {
+      position: absolute;
+      left: 10px;
+      top: 38px;
+      width: 82px;
+      height: 68px;
+      border-radius: 42px;
+      background: #b77447;
+      z-index: 2;
+    }
+
+    .snout {
+      position: absolute;
+      left: 2px;
+      top: 20px;
+      width: 42px;
+      height: 28px;
+      border-radius: 18px;
+      background: #f3d5bb;
+    }
+
+    .ear {
+      position: absolute;
+      top: 54px;
+      width: 28px;
+      height: 62px;
+      border-radius: 20px;
+      background: #99603b;
+      z-index: 1;
+    }
+
+    .ear.left { left: 24px; transform: rotate(12deg); }
+    .ear.right { left: 52px; transform: rotate(-6deg); }
+
+    .eye {
+      position: absolute;
+      top: 23px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #2f2724;
+    }
+
+    .eye.one { left: 44px; }
+    .eye.two { left: 60px; }
+
+    .nose {
+      position: absolute;
+      left: 4px;
+      top: 28px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #2f2724;
+    }
+
+    .leg {
+      position: absolute;
+      width: 16px;
+      height: 72px;
+      border-radius: 14px;
+      background: #9b603b;
+      top: 84px;
+    }
+
+    .leg::after {
+      content: '';
+      position: absolute;
+      left: -3px;
+      bottom: 0;
+      width: 22px;
+      height: 10px;
+      border-radius: 10px;
+      background: #7e4d2f;
+    }
+
+    .leg.a { left: 75px; }
+    .leg.b { left: 112px; }
+    .leg.c { left: 170px; }
+    .leg.d { left: 202px; }
+
+    .tail {
+      position: absolute;
+      right: 16px;
+      top: 56px;
+      width: 54px;
+      height: 12px;
+      border-radius: 12px;
+      background: #9a633d;
+      transform: rotate(28deg);
+      transform-origin: left center;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .facts-grid,
+    .types-grid,
+    .colors-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .facts-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .types-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+    }
+
+    .colors-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 18px;
+    }
+
+    .fact-card,
+    .type-card,
+    .color-card,
+    .timeline-card {
+      padding: 22px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--peach), var(--lavender));
+    }
+
+    .type-card:nth-child(2n) .card-icon,
+    .fact-card:nth-child(2n) .card-icon {
+      background: linear-gradient(135deg, var(--sky), var(--mint));
+    }
+
+    .type-card:nth-child(3n) .card-icon,
+    .color-card:nth-child(2n) .color-swatch {
+      background: linear-gradient(135deg, var(--sage), var(--peach));
+    }
+
+    .type-card ul,
+    .timeline-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .type-card li,
+    .timeline-card li {
+      margin-bottom: 6px;
+    }
+
+    .color-swatch {
+      width: 100%;
+      height: 68px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: inset 0 2px 8px rgba(255,255,255,0.45);
+    }
+
+    .swatch-red { background: linear-gradient(135deg, #7a3b2f, #bf6c4e); }
+    .swatch-black { background: linear-gradient(135deg, #1f1d1e, #5d4a43); }
+    .swatch-choco { background: linear-gradient(135deg, #5a3d2b, #9b6b48); }
+    .swatch-cream { background: linear-gradient(135deg, #f2d9b9, #fff1d9); }
+
+    .origin-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .timeline-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(243,252,246,0.85));
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.9);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 18px 0 40px;
+    }
+
+    .footer-card {
+      padding: 24px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.82), rgba(247,241,255,0.86));
+    }
+
+    .footer-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .origin-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .colors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        border-radius: 24px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-card,
+      .section-card,
+      .fact-card,
+      .type-card,
+      .color-card,
+      .timeline-card,
+      .footer-card,
+      .illustration {
+        padding: 20px;
+      }
+
+      .mini-facts,
+      .facts-grid,
+      .colors-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+
+      .dog {
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="logo">
+          <span class="logo-badge">🐾</span>
+          <span>Taxvärlden</span>
+        </div>
+        <nav>
+          <a href="#fakta">Fakta</a>
+          <a href="#raser">Taxraser</a>
+          <a href="#farger">Färger</a>
+          <a href="#ursprung">Ursprung</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Små ben • stor personlighet</span>
+          <h1>Allt om taxar</h1>
+          <p>
+            Taxen är en liten hund med lång kropp, korta ben och mycket charm.
+            Den är modig, smart, ofta ganska envis och väldigt trogen sin familj.
+          </p>
+          <p>
+            Här hittar du enkel fakta om taxar: hur de ser ut, vilka färger de kan ha,
+            vilka varianter som finns och var rasen kommer ifrån.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#raser">Se taxraserna</a>
+            <a class="btn btn-secondary" href="#farger">Se färgerna</a>
+          </div>
+
+          <div class="mini-facts">
+            <div class="fact-chip">
+              <strong>Personlighet</strong>
+              Modig, alert och ofta lite busig.
+            </div>
+            <div class="fact-chip">
+              <strong>Storlek</strong>
+              Liten hund, men med stort självförtroende.
+            </div>
+            <div class="fact-chip">
+              <strong>Bakgrund</strong>
+              Ursprungligen framtagen för jakt.
+            </div>
+          </div>
+        </div>
+
+        <div class="illustration">
+          <div class="dog-scene" aria-label="Illustration av en tax">
+            <div class="sun"></div>
+            <div class="dog">
+              <div class="ear left"></div>
+              <div class="ear right"></div>
+              <div class="head">
+                <div class="snout"></div>
+                <div class="eye one"></div>
+                <div class="eye two"></div>
+                <div class="nose"></div>
+              </div>
+              <div class="body"></div>
+              <div class="chest"></div>
+              <div class="leg a"></div>
+              <div class="leg b"></div>
+              <div class="leg c"></div>
+              <div class="leg d"></div>
+              <div class="tail"></div>
+            </div>
+            <div class="hill one"></div>
+            <div class="hill two"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fakta">
+      <div class="wrap section-card">
+        <h2>Snabb fakta om taxar</h2>
+        <p>Taxar ser speciella ut, men det är just det som gör dem så lätta att känna igen.</p>
+
+        <div class="facts-grid">
+          <article class="fact-card">
+            <div class="card-icon">🐶</div>
+            <h3>Kroppsform</h3>
+            <p>Taxen har lång rygg, korta ben och ett piggt uttryck.</p>
+          </article>
+
+          <article class="fact-card">
+            <div class="card-icon">💛</div>
+            <h3>Temperament</h3>
+            <p>Den kan vara kärleksfull, lojal och väldigt bestämd.</p>
+          </article>
+
+          <article class="fact-card">
+            <div class="card-icon">🎯</div>
+            <h3>Användning</h3>
+            <p>Rasen avlades fram för att jaga djur som gick ner i gryt och tunnlar.</p>
+          </article>
+
+          <article class="fact-card">
+            <div class="card-icon">🏡</div>
+            <h3>Vardag</h3>
+            <p>Många taxar älskar att mysa hemma, men de behöver också aktivitet och nosarbete.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="raser">
+      <div class="wrap section-card">
+        <h2>Vilka slags taxar finns?</h2>
+        <p>
+          Taxar delas ofta in efter päls. Det finns också olika storlekar,
+          men här är de tre vanligaste pälsvarianterna.
+        </p>
+
+        <div class="types-grid">
+          <article class="type-card">
+            <div class="card-icon">✨</div>
+            <h3>Korthårig tax</h3>
+            <p>Har slät, blank päls som ligger nära kroppen.</p>
+            <ul>
+              <li>Enkel att känna igen</li>
+              <li>Ser elegant och klassisk ut</li>
+              <li>Vanlig variant i många länder</li>
+            </ul>
+          </article>
+
+          <article class="type-card">
+            <div class="card-icon">🌿</div>
+            <h3>Långhårig tax</h3>
+            <p>Har mjukare och längre päls, ofta med lite mer fluff på öron och svans.</p>
+            <ul>
+              <li>Ser mjuk och lite extra stilig ut</li>
+              <li>Behöver mer pälsvård</li>
+              <li>Ofta väldigt charmig i uttrycket</li>
+            </ul>
+          </article>
+
+          <article class="type-card">
+            <div class="card-icon">🪴</div>
+            <h3>Strävhårig tax</h3>
+            <p>Har sträv päls och ofta tydliga ögonbryn och skägg.</p>
+            <ul>
+              <li>Lite rufsig och härlig look</li>
+              <li>Ser extra busig ut</li>
+              <li>Behöver särskild pälsvård ibland</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="farger">
+      <div class="wrap section-card">
+        <h2>Vilka färger kan taxar ha?</h2>
+        <p>Taxar finns i flera färger och mönster. Här är några vanliga exempel.</p>
+
+        <div class="colors-grid">
+          <article class="color-card">
+            <div class="color-swatch swatch-red"></div>
+            <h3>Röd</h3>
+            <p>En klassisk taxfärg som kan gå från ljusare röd till djupare rödbrun.</p>
+          </article>
+
+          <article class="color-card">
+            <div class="color-swatch swatch-black"></div>
+            <h3>Svart med tantecken</h3>
+            <p>Svart päls med ljusare markeringar vid exempelvis ögon, bröst och ben.</p>
+          </article>
+
+          <article class="color-card">
+            <div class="color-swatch swatch-choco"></div>
+            <h3>Brun med tantecken</h3>
+            <p>Liknar svart med tantecken, men i en mjukare brun ton.</p>
+          </article>
+
+          <article class="color-card">
+            <div class="color-swatch swatch-cream"></div>
+            <h3>Ljusare nyanser</h3>
+            <p>Vissa taxar har ljusare eller mer ovanliga nyanser beroende på linje och pälsvariant.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ursprung">
+      <div class="wrap section-card">
+        <h2>Var kommer taxen ifrån?</h2>
+        <div class="origin-layout">
+          <article class="timeline-card">
+            <h3>Ursprung och bakgrund</h3>
+            <p>
+              Taxen kommer från Tyskland. Namnet hänger ihop med ordet för grävling,
+              eftersom rasen användes i jakt på djur som kunde gömma sig i gångar under marken.
+            </p>
+            <p>
+              Den långa kroppen och de korta benen gjorde det lättare för hunden att ta sig fram
+              i trånga utrymmen.
+            </p>
+            <div class="badge-row">
+              <span class="badge">Ursprung: Tyskland</span>
+              <span class="badge">Framavlad för jakt</span>
+              <span class="badge">Känd för mod</span>
+            </div>
+          </article>
+
+          <article class="timeline-card">
+            <h3>Det enkla svaret</h3>
+            <ul>
+              <li>Taxen är en gammal hundras.</li>
+              <li>Den kommer från Tyskland.</li>
+              <li>Den användes från början som jakthund.</li>
+              <li>I dag är den både sällskapshund och arbetande hund.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-card">
+        <h2>Taxar i ett nötskal</h2>
+        <p>Små, långa, modiga och väldigt lätta att tycka om.</p>
+        <p>En enkel hemsida om en hundras med mycket personlighet.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
