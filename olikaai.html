@@ -483,38 +483,9 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(243,252,246,0.88));
     }
 
-.compare-notes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.compare-note {
-  background: rgba(255,255,255,0.62);
-  border: 1px solid rgba(255,255,255,0.9);
-  border-radius: 18px;
-  padding: 14px 16px;
-  box-shadow: var(--shadow-soft);
-}
-
-.compare-note strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--cocoa);
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-.compare-note p {
-  margin: 0;
-  font-size: 0.98rem;
-}
-
-@media (max-width: 680px) {
-  .compare-notes {
-    grid-template-columns: 1fr;
-  }
-}
+    .compare-simple {
+      margin: 18px 0 26px;
+    }
 
     .compare-simple h3 {
       margin-bottom: 10px;
@@ -526,7 +497,8 @@
 
     .compare-simple table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       margin-top: 12px;
       background: rgba(255,255,255,0.72);
       border: 1px solid rgba(255,255,255,0.92);
@@ -549,16 +521,45 @@
       text-align: center;
       border-top: 1px solid rgba(107,79,67,0.08);
       font-weight: 500;
+      vertical-align: middle;
     }
 
     .compare-simple td:first-child {
       text-align: left;
       font-weight: 700;
       color: var(--text);
+      width: 22%;
     }
 
     .compare-simple tbody tr:nth-child(even) {
       background: rgba(255,255,255,0.42);
+    }
+
+    .compare-notes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .compare-note {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 18px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .compare-note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cocoa);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .compare-note p {
+      margin: 0;
+      font-size: 0.98rem;
     }
 
     .footer-card {
@@ -578,6 +579,10 @@
       .compare-grid,
       .price-grid,
       .note-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-notes {
         grid-template-columns: 1fr;
       }
     }
@@ -613,32 +618,12 @@
         text-align: center;
       }
 
-      .compare-simple table,
-      .compare-simple thead,
-      .compare-simple tbody,
-      .compare-simple th,
-      .compare-simple td,
-      .compare-simple tr {
-        display: block;
+      .compare-simple {
+        overflow-x: auto;
       }
 
-      .compare-simple thead {
-        display: none;
-      }
-
-      .compare-simple tr {
-        padding: 10px 0;
-        border-top: 1px solid rgba(107,79,67,0.08);
-      }
-
-      .compare-simple td {
-        text-align: left;
-        padding: 8px 12px;
-        border-top: none;
-      }
-
-      .compare-simple td:first-child {
-        padding-top: 14px;
+      .compare-simple table {
+        min-width: 680px;
       }
     }
   </style>
@@ -909,77 +894,77 @@
       <div class="wrap section-card">
         <h2>Gratisversioner och betalversioner 🤑</h2>
 
-<div class="compare-simple">
-  <h3>Vad får man i gratisversionen – och vad får man i betalversionen?</h3>
-  <p>
-    Gratisversionerna räcker långt för vanliga frågor, enklare skrivhjälp och vardaglig användning.
-    Betalversionerna ger oftast mer kraft, fler funktioner och färre begränsningar.
-  </p>
+        <div class="compare-simple">
+          <h3>Vad får man i gratisversionen – och vad får man i betalversionen?</h3>
+          <p>
+            Gratisversionerna räcker långt för vanliga frågor, enklare skrivhjälp och vardaglig användning.
+            Betalversionerna ger oftast mer kraft, fler funktioner och färre begränsningar.
+          </p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Område</th>
-        <th>Gratisversion</th>
-        <th>Betalversion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>AI-modell</td>
-        <td>Grundnivå eller äldre modell</td>
-        <td>Nyare och mer avancerad modell</td>
-      </tr>
-      <tr>
-        <td>Antal frågor</td>
-        <td>Mer begränsat</td>
-        <td>Högre gränser och ofta snabbare svar</td>
-      </tr>
-      <tr>
-        <td>Filer och dokument</td>
-        <td>Ofta enklare eller begränsat stöd</td>
-        <td>Bättre stöd för uppladdning, analys och större filer</td>
-      </tr>
-      <tr>
-        <td>Bilder och extra verktyg</td>
-        <td>Kan saknas eller vara begränsat</td>
-        <td>Oftare tillgång till bildanalys, bildskapande och fler verktyg</td>
-      </tr>
-      <tr>
-        <td>Jobbintegrationer</td>
-        <td>Begränsade</td>
-        <td>Framför allt Copilot kan kopplas djupare till Word, Excel, Outlook och Teams</td>
-      </tr>
-      <tr>
-        <td>Företagsfunktioner</td>
-        <td>Ofta få eller inga</td>
-        <td>Bättre säkerhet, admin-kontroller och företagsanpassning</td>
-      </tr>
-    </tbody>
-  </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Område</th>
+                <th>Gratisversion</th>
+                <th>Betalversion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AI-modell</td>
+                <td>Grundnivå eller äldre modell</td>
+                <td>Nyare och mer avancerad modell</td>
+              </tr>
+              <tr>
+                <td>Antal frågor</td>
+                <td>Mer begränsat</td>
+                <td>Högre gränser och ofta snabbare svar</td>
+              </tr>
+              <tr>
+                <td>Filer och dokument</td>
+                <td>Ofta enklare eller begränsat stöd</td>
+                <td>Bättre stöd för uppladdning, analys och större filer</td>
+              </tr>
+              <tr>
+                <td>Bilder och extra verktyg</td>
+                <td>Kan saknas eller vara begränsat</td>
+                <td>Oftare tillgång till bildanalys, bildskapande och fler verktyg</td>
+              </tr>
+              <tr>
+                <td>Jobbintegrationer</td>
+                <td>Begränsade</td>
+                <td>Framför allt Copilot kan kopplas djupare till Word, Excel, Outlook, PowerPoint och Teams</td>
+              </tr>
+              <tr>
+                <td>Företagsfunktioner</td>
+                <td>Ofta få eller inga</td>
+                <td>Bättre säkerhet, admin-kontroller och företagsanpassning</td>
+              </tr>
+            </tbody>
+          </table>
 
-  <div class="compare-notes">
-    <div class="compare-note">
-      <strong>Vad betyder bättre AI-modell?</strong>
-      <p>Att tjänsten ofta blir bättre på resonemang, analys, skrivande och mer avancerade uppgifter.</p>
-    </div>
+          <div class="compare-notes">
+            <article class="compare-note">
+              <strong>Vad betyder bättre AI-modell?</strong>
+              <p>Att tjänsten ofta blir bättre på resonemang, analys, skrivande och mer avancerade uppgifter.</p>
+            </article>
 
-    <div class="compare-note">
-      <strong>Vad menas med jobbintegrationer?</strong>
-      <p>Främst att Copilot kan arbeta ihop med Microsoft 365-appar som Word, Excel, Outlook, PowerPoint och Teams.</p>
-    </div>
+            <article class="compare-note">
+              <strong>Vad menas med jobbintegrationer?</strong>
+              <p>Främst att Copilot kan arbeta ihop med Microsoft 365-appar som Word, Excel, Outlook, PowerPoint och Teams.</p>
+            </article>
 
-    <div class="compare-note">
-      <strong>Vad räknas som extra funktioner?</strong>
-      <p>Till exempel filuppladdning, bildanalys, bildskapande, webbsökning och mer avancerade verktyg.</p>
-    </div>
+            <article class="compare-note">
+              <strong>Vad räknas som extra funktioner?</strong>
+              <p>Till exempel filuppladdning, bildanalys, bildskapande, webbsökning och mer avancerade verktyg.</p>
+            </article>
 
-    <div class="compare-note">
-      <strong>Vad är företagsfunktioner?</strong>
-      <p>Sådant som admin-styrning, bättre dataskydd, användarhantering och inställningar som företag ofta behöver.</p>
-    </div>
-  </div>
-</div>
+            <article class="compare-note">
+              <strong>Vad är företagsfunktioner?</strong>
+              <p>Sådant som admin-styrning, bättre dataskydd, användarhantering och inställningar som företag ofta behöver.</p>
+            </article>
+          </div>
+        </div>
 
         <div class="price-grid">
           <article class="price-card">
