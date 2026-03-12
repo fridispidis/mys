@@ -483,9 +483,38 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(243,252,246,0.88));
     }
 
-    .compare-simple {
-      margin: 18px 0 26px;
-    }
+.compare-notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.compare-note {
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.compare-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cocoa);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.compare-note p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 680px) {
+  .compare-notes {
+    grid-template-columns: 1fr;
+  }
+}
 
     .compare-simple h3 {
       margin-bottom: 10px;
