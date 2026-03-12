@@ -151,13 +151,13 @@
       pointer-events: none;
     }
 
-h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #59453c;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
-  text-wrap: balance;
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #59453c;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      text-wrap: balance;
     }
 
     h1 {
@@ -176,11 +176,11 @@ h1, h2, h3 {
       margin-bottom: 12px;
     }
 
-   p {
-  margin: 0 0 14px;
-  font-size: 1.04rem;
-  font-weight: 500;
-  text-wrap: pretty;
+    p {
+      margin: 0 0 14px;
+      font-size: 1.04rem;
+      font-weight: 500;
+      text-wrap: pretty;
     }
 
     .hero-actions {
@@ -444,19 +444,19 @@ h1, h2, h3 {
       font-size: 1rem;
     }
 
-.plus-list li::before {
-  content: '✓ ';
-  font-weight: 800;
-  color: var(--plus);
-  margin-right: 6px;
-}
+    .plus-list li::before {
+      content: '✓ ';
+      font-weight: 800;
+      color: var(--plus);
+      margin-right: 6px;
+    }
 
-.minus-list li::before {
-  content: '𐄂 ';
-  font-weight: 800;
-  color: var(--minus);
-  margin-right: 6px;
-}
+    .minus-list li::before {
+      content: '𐄂 ';
+      font-weight: 800;
+      color: var(--minus);
+      margin-right: 6px;
+    }
 
     .dot-list li::before {
       content: '• ';
@@ -481,6 +481,55 @@ h1, h2, h3 {
 
     .note-card {
       background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(243,252,246,0.88));
+    }
+
+    .compare-simple {
+      margin: 18px 0 26px;
+    }
+
+    .compare-simple h3 {
+      margin-bottom: 10px;
+    }
+
+    .compare-simple p {
+      margin-bottom: 14px;
+    }
+
+    .compare-simple table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.92);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .compare-simple th {
+      background: rgba(255,255,255,0.88);
+      padding: 14px 12px;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--cocoa);
+      font-size: 1rem;
+    }
+
+    .compare-simple td {
+      padding: 12px 10px;
+      text-align: center;
+      border-top: 1px solid rgba(107,79,67,0.08);
+      font-weight: 500;
+    }
+
+    .compare-simple td:first-child {
+      text-align: left;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .compare-simple tbody tr:nth-child(even) {
+      background: rgba(255,255,255,0.42);
     }
 
     .footer-card {
@@ -533,6 +582,34 @@ h1, h2, h3 {
       nav a {
         flex: 1 1 auto;
         text-align: center;
+      }
+
+      .compare-simple table,
+      .compare-simple thead,
+      .compare-simple tbody,
+      .compare-simple th,
+      .compare-simple td,
+      .compare-simple tr {
+        display: block;
+      }
+
+      .compare-simple thead {
+        display: none;
+      }
+
+      .compare-simple tr {
+        padding: 10px 0;
+        border-top: 1px solid rgba(107,79,67,0.08);
+      }
+
+      .compare-simple td {
+        text-align: left;
+        padding: 8px 12px;
+        border-top: none;
+      }
+
+      .compare-simple td:first-child {
+        padding-top: 14px;
       }
     }
   </style>
@@ -609,9 +686,9 @@ h1, h2, h3 {
 
         <div class="info-grid">
           <article class="info-card">
-        <div class="card-icon">
-  <img src="images/ChatGPT-Logo.png" alt="ChatGPT logga">
-</div>
+            <div class="card-icon">
+              <img src="images/ChatGPT-Logo.png" alt="ChatGPT logga">
+            </div>
             <h3>ChatGPT</h3>
             <ul class="dot-list">
               <li>Bra för bred användning och kreativt arbete</li>
@@ -621,9 +698,9 @@ h1, h2, h3 {
           </article>
 
           <article class="info-card">
-      <div class="card-icon">
-  <img src="images/Copilot.png" alt="Copilot logga">
-</div>
+            <div class="card-icon">
+              <img src="images/Copilot.png" alt="Copilot logga">
+            </div>
             <h3>Copilot</h3>
             <ul class="dot-list">
               <li>Stark koppling till Word, Excel, Outlook och Teams</li>
@@ -633,9 +710,9 @@ h1, h2, h3 {
           </article>
 
           <article class="info-card">
-          <div class="card-icon">
-  <img src="images/LeChat.png" alt="Le Chat logga">
-</div>
+            <div class="card-icon">
+              <img src="images/LeChat.png" alt="Le Chat logga">
+            </div>
             <h3>Le Chat</h3>
             <ul class="dot-list">
               <li>Tydlig europeisk profil genom Mistral</li>
@@ -653,8 +730,8 @@ h1, h2, h3 {
         <div class="info-grid">
           <article class="info-card">
             <div class="card-icon">
-  <img src="images/ChatGPT-Logo.png" alt="ChatGPT logga">
-</div>
+              <img src="images/ChatGPT-Logo.png" alt="ChatGPT logga">
+            </div>
             <h3>ChatGPT</h3>
             <div class="score">✅ Bra</div>
             <ul class="plus-list">
@@ -672,8 +749,8 @@ h1, h2, h3 {
 
           <article class="info-card">
             <div class="card-icon">
-  <img src="images/Copilot.png" alt="Copilot logga">
-</div>
+              <img src="images/Copilot.png" alt="Copilot logga">
+            </div>
             <h3>Copilot</h3>
             <div class="score">✅ Bra</div>
             <ul class="plus-list">
@@ -691,8 +768,8 @@ h1, h2, h3 {
 
           <article class="info-card">
             <div class="card-icon">
-                <img src="images/LeChat.png" alt="Le Chat logga">
-</div>
+              <img src="images/LeChat.png" alt="Le Chat logga">
+            </div>
             <h3>Le Chat</h3>
             <div class="score">✅ Bra</div>
             <ul class="plus-list">
@@ -747,11 +824,11 @@ h1, h2, h3 {
 
           <article class="compare-card">
             <div class="card-icon">🎯</div>
-            <h3>Enkel slutsats </h3>
+            <h3>Enkel slutsats</h3>
             <ul class="dot-list">
-              <li>ChatGPT: bäst allround för många privatpersoner.</li>
-              <li>Copilot: bäst i Microsoft-jobbmiljö.</li>
-              <li>Le Chat: bäst om EU-profil väger tungt.</li>
+              <li>ChatGPT: bäst allround för många privatpersoner</li>
+              <li>Copilot: bäst i Microsoft-jobbmiljö</li>
+              <li>Le Chat: bäst om EU-profil väger tungt</li>
             </ul>
           </article>
         </div>
@@ -792,67 +869,68 @@ h1, h2, h3 {
             <ul class="dot-list">
               <li>Använd <b>aldrig</b> deltagaruppgifter eller interna hemligheter i fel miljö</li>
               <li>För jobb och skola behövs ofta en godkänd lösning</li>
-              <li>Privat gratisversion - ej samma sak som företagsgodkänd AI</li>
+              <li>Privat gratisversion – ej samma sak som företagsgodkänd AI</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
-    <div class="compare-simple">
-
-<table>
-<thead>
-<tr>
-<th>Funktion</th>
-<th>ChatGPT</th>
-<th>Copilot</th>
-<th>Le Chat</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Bättre AI-modell</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-
-<tr>
-<td>Högre användningsgränser</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-
-<tr>
-<td>Integration i arbetsappar</td>
-<td>–</td>
-<td>✓</td>
-<td>–</td>
-</tr>
-
-<tr>
-<td>Extra funktioner</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-
-<tr>
-<td>Företagsfunktioner</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-</tbody>
-</table>
-
-</div>
 
     <section id="priser">
       <div class="wrap section-card">
         <h2>Gratisversioner och betalversioner 🤑</h2>
+
+        <div class="compare-simple">
+          <h3>Vad får man i betalversionerna?</h3>
+          <p>
+            Gratisversionerna räcker långt för många vardagliga uppgifter.
+            Betalversionerna ger däremot oftast bättre modeller, fler funktioner och högre användningsgränser.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Funktion</th>
+                <th>ChatGPT</th>
+                <th>Copilot</th>
+                <th>Le Chat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bättre AI-modell</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>Högre användningsgränser</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>Integration i arbetsappar</td>
+                <td>–</td>
+                <td>✓</td>
+                <td>–</td>
+              </tr>
+              <tr>
+                <td>Extra funktioner</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>Företagsfunktioner</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="price-grid">
           <article class="price-card">
             <div class="card-icon">🆓</div>
